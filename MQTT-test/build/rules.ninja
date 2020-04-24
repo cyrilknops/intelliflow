@@ -1384,7 +1384,7 @@ rule CXX_STATIC_LIBRARY_LINKER____idf_protocol_examples_common
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /Users/cyrilknops/.espressif/tools/cmake/3.13.4/CMake.app/Contents/bin/cmake -S/Users/cyrilknops/eclipse-workspace/MQTT-test -B/Users/cyrilknops/eclipse-workspace/MQTT-test/build
+  command = /Users/cyrilknops/.espressif/tools/cmake/3.13.4/CMake.app/Contents/bin/cmake -S/Users/cyrilknops/intelliflow/MQTT-test -B/Users/cyrilknops/intelliflow/MQTT-test/build
   description = Re-running CMake...
   generator = 1
 
