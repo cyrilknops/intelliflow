@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/cyrilknops/eclipse-workspace/MQTT-test/build/bootloader/esp-idf/cmake_install.cmake")
+  include("/Users/cyrilknops/intelliflow/MQTT-test/build/bootloader/esp-idf/cmake_install.cmake")
 
 endif()
 
@@ -46,5 +46,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/cyrilknops/eclipse-workspace/MQTT-test/build/bootloader/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/cyrilknops/intelliflow/MQTT-test/build/bootloader/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

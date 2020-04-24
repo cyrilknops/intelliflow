@@ -34,8 +34,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/cyrilknops/eclipse-workspace/MQTT-test/build/esp-idf/mbedtls/mbedtls/library/cmake_install.cmake")
-  include("/Users/cyrilknops/eclipse-workspace/MQTT-test/build/esp-idf/mbedtls/mbedtls/include/cmake_install.cmake")
+  include("/Users/cyrilknops/intelliflow/MQTT-test/build/esp-idf/mbedtls/mbedtls/library/cmake_install.cmake")
+  include("/Users/cyrilknops/intelliflow/MQTT-test/build/esp-idf/mbedtls/mbedtls/include/cmake_install.cmake")
 
 endif()
 

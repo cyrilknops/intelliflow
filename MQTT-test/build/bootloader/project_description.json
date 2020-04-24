@@ -1,8 +1,8 @@
 {
     "project_name":       "bootloader",
     "project_path":       "/Users/cyrilknops/esp/esp-idf/components/bootloader/subproject",
-    "build_dir":          "/Users/cyrilknops/eclipse-workspace/MQTT-test/build/bootloader",
-    "config_file":        "/Users/cyrilknops/eclipse-workspace/MQTT-test/sdkconfig",
+    "build_dir":          "/Users/cyrilknops/intelliflow/MQTT-test/build/bootloader",
+    "config_file":        "/Users/cyrilknops/intelliflow/MQTT-test/sdkconfig",
     "config_defaults":    "",
     "app_elf":            "bootloader.elf",
     "app_bin":            "bootloader.bin",
