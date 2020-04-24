@@ -1,5 +1,5 @@
-#include "src/entry.pb.h"
- 
+#include "entry.pb.h"
+#include <dht11.h>
 #include "pb_common.h"
 #include "pb.h"
 #include "pb_encode.h"
@@ -8,16 +8,24 @@
 #include <PubSubClient.h>
 #include "config.h"
 
+#define DHT11PIN 4
+
+//wifi connection
 WiFiClient espClient;
+
+//mqtt
 PubSubClient client(espClient);
 long lastMsg = 0;
 char msg[50];
 uint32_t  messages = 0;
 uint32_t succes = 0;
+
 //protobuf
 uint8_t buffer[10];
 int values = 0;
 
+//temp sensor
+dht11 DHT11;
 Loggings_Log message = Loggings_Log_init_zero ;
 pb_ostream_t stream = pb_ostream_from_buffer(buffer, sizeof(buffer));
 
@@ -38,7 +46,9 @@ void loop() {
   if (!client.connected()) {
     reconnect();
   }else{
-    message.temperature = random(0, 100);
+    int chk = DHT11.read(DHT11PIN);
+    //message.temperature = random(0, 100);
+    message.temperature = DHT11.temperature;
     Serial.println(message.temperature);
     if(encode())
       pub();
