@@ -20,6 +20,8 @@ Project\ Outputs*/
 # Access lock file for dbLib sources
 **/*.ldb
 
+#no zip
+*.zip
 
 ### Eclipse ###
 .metadata

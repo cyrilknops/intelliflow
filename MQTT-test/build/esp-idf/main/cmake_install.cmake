@@ -1,4 +1,4 @@
-# Install script for directory: /Users/cyrilknops/eclipse-workspace/MQTT-test/main
+# Install script for directory: /Users/cyrilknops/intelliflow/MQTT-test/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
