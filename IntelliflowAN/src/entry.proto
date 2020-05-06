@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+package Loggings;
+message Log {
+  uint32 temperature = 1;
+}
