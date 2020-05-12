@@ -1,6 +1,6 @@
 # PCB Prototype 
 
-Here you can find the schematics of the PCB prototype. 
+Here you can find all the files of the PCB used in this project.
 
 Included in this workspace: 
 
