@@ -1,0 +1,9 @@
+Manufacturer=CUI Devices
+PartNumber=TBL007A-500-02GY
+PartCategory=Connector
+PackageCategory=Header, Receptacle - Straight PTH Box
+PinCount=4
+Version=1.1
+Released=2019-11-25 17:14:00
+Downloaded=2020-03-18 12:15:45
+3D=Y
