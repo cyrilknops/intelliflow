@@ -1,7 +1,10 @@
-# Zet hier alles glen
+# PCB Prototype 
 
-# Geen Probleem 
+Here you can find the schematics of the PCB prototype. 
 
-Groetjes glen
+Included in this workspace: 
 
-dit is een test van commit en push
+- 3D map : In this map are the used 3D models of the prototype
+- PCB_Project : Here in this map are the schematics , project and PCB files of the project
+
+
