@@ -2,7 +2,14 @@
 Intelliflow is a IoT project made by Cyril Knops, Joost Van der Linden, Ferre Claes and Glen Van Puyenbroeck. The goal is to design a pcb and firmware for the [ESP32](https://www.espressif.com/en/products/socs/esp32/overview) that can interface with generic sensors and communicate with a dashboard. The data that is send to the dashboard are the different sensor values.
 ## System Overview
 ![Drag Racing](https://github.com/cyrilknops/intelliflow/blob/master/2020-04-26%2014_32_01-Untitled-1.ai_%20%40%20100%25%20(RGB_Preview).png)
-## Project Goals
+## How to use
+There are a few differen directories with each its own project:
+* dashboard written in angularjs
+* firmware for sending temperatures to the server
+* firmware to change the settings of the esp
+* a test firmware that tests the speed of the different protocols (MQTT, Wi-Fi and protobuf)
+
+most of them have a readme file in them which explains how to use and configure the different tings
 ## Build with
 * [C](https://en.wikipedia.org/wiki/C_(programming_language)) - The programming language used
 * [MQTT](http://mqtt.org/) - The communication protocol used
