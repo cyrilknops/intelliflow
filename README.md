@@ -4,10 +4,10 @@ Intelliflow is a IoT project made by Cyril Knops, Joost Van der Linden, Ferre Cl
 ![Flowdiagram](https://raw.githubusercontent.com/cyrilknops/intelliflow/master/Schema.jpg)
 ## How to use
 There are a few differen directories with each its own project:
-* dashboard written in angularjs
-* firmware for sending temperatures to the server
-* firmware to change the settings of the esp
-* a test firmware that tests the speed of the different protocols (MQTT, Wi-Fi and protobuf)
+* [dashboard written in angularjs](https://github.com/cyrilknops/intelliflow/tree/master/test-dashboard)
+* [firmware for sending temperatures to the server](https://github.com/cyrilknops/intelliflow/tree/master/MQTT%2BProtobuf/Intelliflow)
+* [firmware to change the settings of the esp](https://github.com/cyrilknops/intelliflow/tree/master/Console)
+* [a test firmware that tests the speed of the different protocols (MQTT, Wi-Fi and protobuf)](https://github.com/cyrilknops/intelliflow/tree/master/IntelliflowAN)
 
 most of them have a readme file in them which explains how to use and configure the different tings
 ## Build with
@@ -15,10 +15,12 @@ most of them have a readme file in them which explains how to use and configure 
 * [MQTT](http://mqtt.org/) - The communication protocol used
 * [Sparkfun ESP32 Thing](https://www.sparkfun.com/products/13907) - The development boeard used
 ## Authors
-* Cyril Knops - Student
-* Joost Van der Linden - Student
-* Glen Van Puyenbroeck - Student
-* Ferre Claes - Student
+* Cyril Knops - ESP32 Network
+* Joost Van der Linden - ESP32 Sensor connection
+* Glen Van Puyenbroeck - PCB Design
+* Ferre Claes - Sensor components
+* Bart Stukken - Scrum master
+* Koen Gilissen - Product owner
 ## Links
 [Component list](https://hogeschoolpxl-my.sharepoint.com/:x:/r/personal/11800025_student_pxl_be/_layouts/15/Doc.aspx?sourcedoc=%7BC7E13A86-8976-4C7D-A8FE-9732136F6248%7D&file=LijstMateriaal.xlsx&action=default&mobileredirect=true)
 <br/>
