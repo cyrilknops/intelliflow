@@ -1,7 +1,7 @@
 # Intelliflow
 Intelliflow is a IoT project made by Cyril Knops, Joost Van der Linden, Ferre Claes and Glen Van Puyenbroeck. The goal is to design a pcb and firmware for the [ESP32](https://www.espressif.com/en/products/socs/esp32/overview) that can interface with generic sensors and communicate with a dashboard. The data that is send to the dashboard are the different sensor values.
 ## System Overview
-![Flowdiagram](https://raw.githubusercontent.com/cyrilknops/intelliflow/master/Schema.jpg)
+![Flowdiagram](https://raw.githubusercontent.com/cyrilknops/intelliflow/master/2019-2020/Schema.jpg)
 ## How to use
 There are a few differen directories with each its own project:
 * [dashboard written in angularjs](https://github.com/cyrilknops/intelliflow/tree/master/test-dashboard)
