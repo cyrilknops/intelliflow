@@ -1,0 +1,9 @@
+Manufacturer=Phoenix Contact
+PartNumber=1729034
+PartCategory=Connector
+PackageCategory=Header, Shrouded
+PinCount=4
+Version=1.2
+Released=2017-08-21 15:54:57
+Downloaded=2020-03-29 21:46:51
+3D=Y
