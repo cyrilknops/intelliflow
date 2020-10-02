@@ -1,0 +1,3 @@
+3DX_CUI_DEVICES_Supplier: CUI Devices
+3DX_CUI_DEVICES_Description: 2~24 Poles, Screwless, 45°, 5.00 Pitch, 26~14 (AWG), Terminal Block Connector
+3DX_CUI_DEVICES_Model Number: TBL007A-500-05GY

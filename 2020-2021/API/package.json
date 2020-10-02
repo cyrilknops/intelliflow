@@ -1,0 +1,11 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "a api for receiving data from sensors via mqtt and protobuf",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cyril knops",
+  "license": "ISC"
+}

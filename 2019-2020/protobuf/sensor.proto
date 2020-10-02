@@ -1,0 +1,21 @@
+syntax = "proto2";
+
+package intelliflow;
+
+message Sensor {
+  required string id = 1;
+  required double data = 2;
+
+  enum unit {
+    celsius = 0;
+    fahrenheit = 1;
+    bar = 2;
+    psi = 3;
+    ph = 4;
+    ppm = 5;
+    volts = 6;
+    current = 7;
+    cmps = 8;
+  }
+
+}

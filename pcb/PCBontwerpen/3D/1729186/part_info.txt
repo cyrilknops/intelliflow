@@ -1,9 +1,0 @@
-Manufacturer=Phoenix Contact
-PartNumber=1729186
-PartCategory=Connector
-PackageCategory=Header, Shrouded
-PinCount=8
-Version=3.1
-Released=2017-08-09 12:02:28
-Downloaded=2020-03-29 21:17:51
-3D=Y

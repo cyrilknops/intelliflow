@@ -1,0 +1,10 @@
+[
+  {
+    "name":"temp",
+    "url":"http://intelliflow.pxl-ea-ict.be:24070/api/v1/temperature"
+  },
+  {
+    "name":"amount",
+    "url":"http://intelliflow.pxl-ea-ict.be:24070/api/v1/ammount"
+  }
+]
