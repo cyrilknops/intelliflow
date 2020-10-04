@@ -21,7 +21,7 @@ Project\ Outputs*/
 **/*.ldb
 
 #no zip
-*.zip
+#*.zip
 
 ### Eclipse ###
 .metadata
