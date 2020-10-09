@@ -1,10 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>DMX</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+    <style type="text/css">
+        th {
+            vertical-align: inherit !important;
+            text-align: right;
+        }
+    </style>
 </head>
-<body>
+<body ng-app="myApp" style="padding: 25px 0px 50px 0px; background-color: #ededed">
+<div class="container" ng-controller="mainController as vm">
+    {{vm.data}}
+</div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('mainController', Cntr);
+    function Cntr($http, $timeout) {
+        var vm = this;
+        vm.port = 3000;
+        vm.data = "";
+        var error = false;
+        vm.getData = function(){
+            $http({
+                method: 'get',
+                url   : "http://localhost:"+vm.port+"/api/"
+            }).then(function (res) {
+                console.log(res.data);
+                vm.data = res.data;
+            }).catch(function (err) {
+                error = true;
+            });
+            if(error){
+                console.log('Error: er is een fout opgetreden ');
+            }
+        };
+        vm.intervalFunction = function(){
+            $timeout(function() {
+                vm.getData();
+                vm.intervalFunction();
+            }, 1000)
+        };
+        vm.getData();
+        vm.intervalFunction();
+
+    }
+    app.filter('capitalize', function() {
+        return function(input) {
+            return (angular.isString(input) && input.length > 0) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : input;
+        }
+    });
+</script>
 </body>
 </html>

@@ -2,6 +2,8 @@ const mosca = require('mosca');
 const express = require('express');
 const cors = require('cors');
 
+
+//API
 const port = 3000;
 const app = express();
 
@@ -12,8 +14,12 @@ app.get('/', function(request, response){
     response.sendFile(__dirname + '/html/index.html');
 });
 
+app.get('/api', function(request, response){
+    let result = [{id:1,data:'bla bla'}];
+    response.send(JSON.stringify(result));
+});
 
-
+//Broker
 var settings = {port: 1883};
 var broker = new mosca.Server(settings); //start the broker
 
