@@ -17,6 +17,7 @@ message Sensor {
     volts = 6;
     current = 7;
     cmps = 8;
+    timestamp = 9;
   }
 }
 message Hub {
