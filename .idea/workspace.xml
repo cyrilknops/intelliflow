@@ -20,10 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cb9cff9-7e5c-4d87-a16f-afd2a10e9186" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2020-2021/API/intelliflow.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019-2020/protobuf/sensor.proto" beforeDir="false" afterPath="$PROJECT_DIR$/2019-2020/protobuf/sensor.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2020-2021/API/intelliflow.proto" beforeDir="false" afterPath="$PROJECT_DIR$/2020-2021/API/intelliflow.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +88,8 @@
       <workItem from="1601675802853" duration="116000" />
       <workItem from="1601995231207" duration="2725000" />
       <workItem from="1602244849240" duration="72000" />
-      <workItem from="1602840704973" duration="4246000" />
+      <workItem from="1602840704973" duration="4595000" />
+      <workItem from="1602853054211" duration="664000" />
     </task>
     <servers />
   </component>
@@ -107,6 +106,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="94" y="94" width="1519" height="839" key="DiffContextDialog" timestamp="1602850285721">
