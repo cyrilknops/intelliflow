@@ -4,9 +4,8 @@ package intelliflow;
 
 message Sensor {
   required string id = 1;
-  required double data = 2;
-
-  enum unit {
+  required double value = 2;
+  enum units {
     celsius = 0;
     fahrenheit = 1;
     bar = 2;
@@ -17,5 +16,4 @@ message Sensor {
     current = 7;
     cmps = 8;
   }
-
 }

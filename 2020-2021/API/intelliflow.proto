@@ -1,0 +1,36 @@
+/* Copyright C.Knops iwg-it */
+syntax = "proto3";
+
+package intelliflow;
+
+message Sensor {
+  string id = 1;
+  double value = 2;
+  units unit = 3;
+  enum units {
+    celsius = 0;
+    fahrenheit = 1;
+    bar = 2;
+    psi = 3;
+    ph = 4;
+    ppm = 5;
+    volts = 6;
+    current = 7;
+    cmps = 8;
+  }
+}
+message Hub {
+  string id = 1;
+  string sensors = 2;
+}
+message Admin {
+    string id = 1;
+    options option = 2;
+    string command = 3;
+    enum options{
+        restart = 0;
+        init = 1;
+        factoryreset = 2;
+        cli = 3;
+    }
+}
