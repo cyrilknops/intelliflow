@@ -20,10 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cb9cff9-7e5c-4d87-a16f-afd2a10e9186" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2020-2021/API/intelliflow.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2019-2020/protobuf/sensor.proto" beforeDir="false" afterPath="$PROJECT_DIR$/2019-2020/protobuf/sensor.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2020-2021/API/intelliflow.proto" beforeDir="false" afterPath="$PROJECT_DIR$/2020-2021/API/intelliflow.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,9 +52,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/2019-2020/protobuf/generator-bin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -91,6 +90,7 @@
       <workItem from="1601995231207" duration="2725000" />
       <workItem from="1602244849240" duration="72000" />
       <workItem from="1602840704973" duration="4246000" />
+      <workItem from="1602853910171" duration="850000" />
     </task>
     <servers />
   </component>
@@ -107,6 +107,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="94" y="94" width="1519" height="839" key="DiffContextDialog" timestamp="1602850285721">
