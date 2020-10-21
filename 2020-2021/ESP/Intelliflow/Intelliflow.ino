@@ -9,7 +9,9 @@
 #include <PubSubClient.h>
 #include "config.h"
 
+//pins
 #define DHT11PIN 4
+
 
 //wifi connection
 WiFiClient espClient;
@@ -24,7 +26,7 @@ uint32_t ppm = 0;
 uint32_t volts = 0;
 uint32_t current = 0;
 uint32_t cmp = 0;
-uint32_t stamp = 0;timestamp32bits();
+uint32_t stamp = 0;
 
 
 //mqtt
@@ -60,10 +62,9 @@ void loop() {
   if (!client.connected()) {
     reconnect();
   }else{
-    //int chk = DHT11.read(DHT11PIN);
     celsius = DHT11.read(DHT11PIN);
-    fahrenheit = 1.8 * celsius + 32;
-    bar = 0;
+    fahrenheit = 1.8 * celsius + 32;  //celsius converted to fahrenheit --> fahrenheit=1.8*celsius+32
+    bar = 0;                          
     psi = 0;
     ph = 0;
     ppm = 0;
@@ -71,8 +72,6 @@ void loop() {
     current = 0;
     cmp = 0;
     stamp = timestamp32bits();
-    
-    //message.temperature = random(0, 100);
     
     message.cesluis = celsius;
     message.fahrenheit = fahrenheit;
@@ -108,10 +107,12 @@ bool pub(){
     Serial.println(F("Publish succesful"));
     resetValues();
   }
+  /*
   Serial.print("succes-rate: ");
   Serial.print(succes);
   Serial.print("/");
   Serial.println(messages);
+  */
 }
 
 void setup_wifi() {
