@@ -26,7 +26,7 @@ uint32_t ppm = 0;
 uint32_t volts = 0;
 uint32_t current = 0;
 uint32_t cmp = 0;
-uint32_t stamp = 0;
+uint32_t timestamp = 0;
 
 
 //mqtt
@@ -71,7 +71,7 @@ void loop() {
     volts = 0;
     current = 0;
     cmp = 0;
-    stamp = timestamp32bits();
+    timestamp = timestamp32bits();
     
     message.cesluis = celsius;
     message.fahrenheit = fahrenheit;
@@ -82,7 +82,7 @@ void loop() {
     message.volts = volts;
     message.current = current;
     message.cmp = cmp;
-    message.timestamp = stamp;
+    message.timestamp = timestamp;
     
     if(encode())
       pub();
