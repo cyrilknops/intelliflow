@@ -24,7 +24,7 @@ uint32_t ppm = 0;
 uint32_t volts = 0;
 uint32_t current = 0;
 uint32_t cmp = 0;
-uint32_t stamp = 0;timestamp32bits();
+uint32_t stamp = 0;
 
 
 //mqtt
