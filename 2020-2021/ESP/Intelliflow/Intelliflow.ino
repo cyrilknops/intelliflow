@@ -62,15 +62,16 @@ void loop() {
   if (!client.connected()) {
     reconnect();
   }else{
-    celsius = DHT11.read(DHT11PIN);
+    //celsius = DHT11.read(DHT11PIN);
+    celsius = 25;
     fahrenheit = 1.8 * celsius + 32;  //celsius converted to fahrenheit --> fahrenheit=1.8*celsius+32
-    bar = 0;                          
-    psi = 0;
-    ph = 0;
-    ppm = 0;
-    volts = 0;
-    current = 0;
-    cmp = 0;
+    bar = 3;                          
+    psi = 1800;
+    ph = 7;
+    ppm = 4;
+    volts = 2;
+    current = 1;
+    cmp = 3;
     timestamp = timestamp32bits();
     
     message.cesluis = celsius;
