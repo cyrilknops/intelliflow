@@ -61,6 +61,24 @@ broker.on('published', function(packet, client) {
         }
     });
 });
-
+protobuf.load("./proto/intelliflow.proto", function(err, root) {
+    var HubM = root.lookupType("intelliflow.Hub");
+    var payload = { id: '1', sensors: '[1,2,3]' };
+    var errMsg = HubM.verify(payload);
+    if (errMsg)
+        throw Error(errMsg);
+    var message = HubM.create(payload);
+    var buffer = HubM.encode(message).finish();
+    var packet = {
+        topic: 'hub',
+        payload: buffer,
+        qos: 1,
+        retain: false
+    }
+    console.log(buffer);
+    broker.publish(packet, ()=>{
+       console.log("buffer send");
+    });
+});
 app.listen(port, () => console.log(`App listening at http://localhost:${port}`));
 

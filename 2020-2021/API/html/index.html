@@ -27,7 +27,7 @@
         vm.getData = function(){
             $http({
                 method: 'get',
-                url   : "http://localhost:"+vm.port+"/api/"
+                url   : "http://localhost:"+vm.port+"/api/hub"
             }).then(function (res) {
                 console.log(res.data);
                 vm.data = res.data;           
