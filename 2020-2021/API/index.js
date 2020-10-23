@@ -4,7 +4,7 @@ const cors = require('cors');
 var protobuf = require("protobufjs");
 
 //API
-const port = 3000;
+const port = 8888;
 const app = express();
 
 //public var
@@ -29,7 +29,7 @@ app.get('/api/admin', function(request, response){
 
 
 //Broker
-var settings = {port: 1883};
+var settings = {port: 24075};   //defualt 1883
 var broker = new mosca.Server(settings); //start the broker
 
 broker.on('clientConnected', function(client) {
