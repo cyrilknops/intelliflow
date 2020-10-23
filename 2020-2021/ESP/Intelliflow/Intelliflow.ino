@@ -1,17 +1,13 @@
+#include <pb.h>
+#include <pb_common.h>
+#include <pb_decode.h>
+#include <pb_encode.h>
+
 #include "intelliflow.pb.h"
-#include <dht11.h>
-#include "pb_common.h"
-#include "pb.h"
-#include "pb_encode.h"
 
 #include <WiFi.h>
-#include <timestamp32bits.h>
 #include <PubSubClient.h>
 #include "config.h"
-
-//pins
-#define DHT11PIN 4
-
 
 //wifi connection
 WiFiClient espClient;
@@ -39,10 +35,7 @@ uint32_t succes = 0;
 //protobuf
 uint8_t buffer[10];
 int values = 0;
-
-//temp sensor
-dht11 DHT11;
-Loggings_Log message = Loggings_Log_init_zero ;
+intelliflow_Sensor sensor = intelliflow_Sensor_init_zero;
 pb_ostream_t stream = pb_ostream_from_buffer(buffer, sizeof(buffer));
 
 void setup() {
@@ -62,7 +55,6 @@ void loop() {
   if (!client.connected()) {
     reconnect();
   }else{
-    //celsius = DHT11.read(DHT11PIN);
     celsius = 25;
     fahrenheit = 1.8 * celsius + 32;  //celsius converted to fahrenheit --> fahrenheit=1.8*celsius+32
     bar = 3;                          
@@ -72,19 +64,12 @@ void loop() {
     volts = 2;
     current = 1;
     cmp = 3;
-    timestamp = timestamp32bits();
-    
-    message.cesluis = celsius;
-    message.fahrenheit = fahrenheit;
-    message.bar = bar;
-    message.psi = psi;
-    message.ph = ph;
-    message.ppm = ppm;
-    message.volts = volts;
-    message.current = current;
-    message.cmp = cmp;
-    message.timestamp = timestamp;
-    
+    timestamp = 0;
+
+    sensor.value=celsius;
+    char* value = "1";
+    sensor.id.arg = value;
+    sensor.unit=intelliflow_Sensor_units_celsius;    
     if(encode())
       pub();
   }
@@ -92,7 +77,7 @@ void loop() {
 }
 
 bool encode(){
-  if(!pb_encode(&stream, Loggings_Log_fields, &message)){
+  if(!pb_encode(&stream, intelliflow_Sensor_fields, &sensor)){
       Serial.println("Failed to encode");
       return false;
   }
@@ -100,7 +85,7 @@ bool encode(){
 }
 bool pub(){
   messages++;
-  if (!client.publish("device", buffer, stream.bytes_written)) {
+  if (!client.publish("sensor", buffer, stream.bytes_written)) {
     Serial.println(F("Publishing Failed"));
     resetValues();
   } else {
@@ -108,12 +93,6 @@ bool pub(){
     Serial.println(F("Publish succesful"));
     resetValues();
   }
-  /*
-  Serial.print("succes-rate: ");
-  Serial.print(succes);
-  Serial.print("/");
-  Serial.println(messages);
-  */
 }
 
 void setup_wifi() {
@@ -179,16 +158,10 @@ void reconnect() {
   }
 }
 void resetValues() {
-  message.cesluis = 0;
-  message.fahrenheit = 0;
-  message.bar = 0;
-  message.psi = 0;
-  message.ph = 0;
-  message.ppm = 0;
-  message.volts = 0;
-  message.current = 0;
-  message.cmp = 0;
-  message.timestamp = 0;
+  char* value = "";
+  sensor.id.arg = value;
+  sensor.value = 0;
+  sensor.unit=intelliflow_Sensor_units_celsius;
   memset(buffer, 0, sizeof(buffer));
   stream = pb_ostream_from_buffer(buffer, sizeof(buffer));
 }

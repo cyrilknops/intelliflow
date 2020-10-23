@@ -1,3 +1,3 @@
-const char* ssid = "Airport_IoT";
-const char* password = "********";
-const char* mqtt_server = "intelliflow.pxl-ea-ict.be";
+const char* ssid = "T4SS";
+const char* password = "LHIT-xrhy-6698";
+const char* mqtt_server = "home.iwg-it.com";
