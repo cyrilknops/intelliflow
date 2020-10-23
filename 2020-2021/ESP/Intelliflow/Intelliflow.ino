@@ -22,7 +22,7 @@ uint32_t ppm = 0;
 uint32_t volts = 0;
 uint32_t current = 0;
 uint32_t cmp = 0;
-uint32_t timestamp = 0;
+//uint32_t timestamp = 0;
 
 
 //mqtt
@@ -64,7 +64,7 @@ void loop() {
     volts = 2;
     current = 1;
     cmp = 3;
-    timestamp = 0;
+    //timestamp = 0;
 
     sensor.value=celsius;
     char* value = "1";
