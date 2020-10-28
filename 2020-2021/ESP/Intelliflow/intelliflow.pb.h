@@ -43,7 +43,7 @@ typedef struct _intelliflow_Admin {
 } intelliflow_Admin;
 
 typedef struct _intelliflow_Sensor {
-    pb_callback_t id;
+    char id[128];
     double value;
     intelliflow_Sensor_units unit;
 } intelliflow_Sensor;
@@ -64,10 +64,10 @@ extern "C" {
 #endif
 
 /* Initializer values for message structs */
-#define intelliflow_Sensor_init_default          {{{NULL}, NULL}, 0, _intelliflow_Sensor_units_MIN}
+#define intelliflow_Sensor_init_default          {"", 0, _intelliflow_Sensor_units_MIN}
 #define intelliflow_Hub_init_default             {{{NULL}, NULL}, {{NULL}, NULL}}
 #define intelliflow_Admin_init_default           {{{NULL}, NULL}, _intelliflow_Admin_options_MIN, {{NULL}, NULL}}
-#define intelliflow_Sensor_init_zero             {{{NULL}, NULL}, 0, _intelliflow_Sensor_units_MIN}
+#define intelliflow_Sensor_init_zero             {"", 0, _intelliflow_Sensor_units_MIN}
 #define intelliflow_Hub_init_zero                {{{NULL}, NULL}, {{NULL}, NULL}}
 #define intelliflow_Admin_init_zero              {{{NULL}, NULL}, _intelliflow_Admin_options_MIN, {{NULL}, NULL}}
 
@@ -83,10 +83,10 @@ extern "C" {
 
 /* Struct field encoding specification for nanopb */
 #define intelliflow_Sensor_FIELDLIST(X, a) \
-X(a, CALLBACK, SINGULAR, STRING,   id,                1) \
+X(a, STATIC,   SINGULAR, STRING,   id,                1) \
 X(a, STATIC,   SINGULAR, DOUBLE,   value,             2) \
 X(a, STATIC,   SINGULAR, UENUM,    unit,              3)
-#define intelliflow_Sensor_CALLBACK pb_default_field_callback
+#define intelliflow_Sensor_CALLBACK NULL
 #define intelliflow_Sensor_DEFAULT NULL
 
 #define intelliflow_Hub_FIELDLIST(X, a) \
@@ -112,7 +112,7 @@ extern const pb_msgdesc_t intelliflow_Admin_msg;
 #define intelliflow_Admin_fields &intelliflow_Admin_msg
 
 /* Maximum encoded size of messages (where known) */
-/* intelliflow_Sensor_size depends on runtime parameters */
+#define intelliflow_Sensor_size                  141
 /* intelliflow_Hub_size depends on runtime parameters */
 /* intelliflow_Admin_size depends on runtime parameters */
 

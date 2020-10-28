@@ -67,9 +67,13 @@ void loop() {
     //timestamp = 0;
 
     sensor.value=celsius;
-    char* value = "1";
-    sensor.id.arg = value;
-    sensor.unit=intelliflow_Sensor_units_celsius;    
+    strcpy(sensor.id, "1");
+    sensor.unit=intelliflow_Sensor_units_celsius;   
+
+    sensor.value=fahrenheit;
+    strcpy(sensor.id, "1");
+    sensor.unit=intelliflow_Sensor_units_fahrenheit;
+    
     if(encode())
       pub();
   }
@@ -158,8 +162,7 @@ void reconnect() {
   }
 }
 void resetValues() {
-  char* value = "";
-  sensor.id.arg = value;
+  strcpy(sensor.id, "");
   sensor.value = 0;
   sensor.unit=intelliflow_Sensor_units_celsius;
   memset(buffer, 0, sizeof(buffer));
