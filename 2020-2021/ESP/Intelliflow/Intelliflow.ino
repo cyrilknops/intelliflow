@@ -21,7 +21,7 @@ uint32_t ph = 0;
 uint32_t ppm = 0;
 uint32_t volts = 0;
 uint32_t current = 0;
-uint32_t cmp = 0;
+uint32_t cmps = 0;
 //uint32_t timestamp = 0;
 
 
@@ -37,6 +37,8 @@ uint8_t buffer[10];
 int values = 0;
 intelliflow_Sensor sensor = intelliflow_Sensor_init_zero;
 pb_ostream_t stream = pb_ostream_from_buffer(buffer, sizeof(buffer));
+
+char* value="";
 
 void setup() {
   //status led
@@ -55,7 +57,7 @@ void loop() {
   if (!client.connected()) {
     reconnect();
   }else{
-    celsius = 25;
+    celsius = 24;
     fahrenheit = 1.8 * celsius + 32;  //celsius converted to fahrenheit --> fahrenheit=1.8*celsius+32
     bar = 3;                          
     psi = 1800;
@@ -63,19 +65,28 @@ void loop() {
     ppm = 4;
     volts = 2;
     current = 1;
-    cmp = 3;
+    cmps = 3;
     //timestamp = 0;
 
+    value="1";
+    sensor.id.arg=value;
     sensor.value=celsius;
-    strcpy(sensor.id, "1");
     sensor.unit=intelliflow_Sensor_units_celsius;   
 
+    if(encode())
+    {
+      pub();
+    }
+    
+    /*value="1";
+    sensor.id.arg=value;
     sensor.value=fahrenheit;
-    strcpy(sensor.id, "1");
-    sensor.unit=intelliflow_Sensor_units_fahrenheit;
+    sensor.unit=intelliflow_Sensor_units_fahrenheit;   
     
     if(encode())
+    {
       pub();
+    }*/
   }
   delay(1000);
 }
@@ -85,6 +96,9 @@ bool encode(){
       Serial.println("Failed to encode");
       return false;
   }
+  Serial.println(stream.bytes_written);
+  Serial.printf("%02X\n",buffer);
+  Serial.println(sensor.value);
   return true;
 }
 bool pub(){
@@ -162,9 +176,10 @@ void reconnect() {
   }
 }
 void resetValues() {
-  strcpy(sensor.id, "");
+  value="";
+  sensor.id.arg=value;
   sensor.value = 0;
-  sensor.unit=intelliflow_Sensor_units_celsius;
+  sensor.unit=intelliflow_Sensor_units_fahrenheit;
   memset(buffer, 0, sizeof(buffer));
   stream = pb_ostream_from_buffer(buffer, sizeof(buffer));
 }
