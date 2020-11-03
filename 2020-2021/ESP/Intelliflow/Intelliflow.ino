@@ -1,6 +1,5 @@
 #include <pb.h>
 #include <pb_common.h>
-#include <pb_decode.h>
 #include <pb_encode.h>
 
 #include "intelliflow.pb.h"
@@ -12,19 +11,6 @@
 //wifi connection
 WiFiClient espClient;
 
-// parameters
-uint32_t celsius = 0;
-uint32_t fahrenheit = 0;
-uint32_t bar = 0;
-uint32_t psi = 0;
-uint32_t ph = 0;
-uint32_t ppm = 0;
-uint32_t volts = 0;
-uint32_t current = 0;
-uint32_t cmps = 0;
-//uint32_t timestamp = 0;
-
-
 //mqtt
 PubSubClient client(espClient);
 long lastMsg = 0;
@@ -33,23 +19,20 @@ uint32_t  messages = 0;
 uint32_t succes = 0;
 
 //protobuf
-uint8_t buffer[10];
 int values = 0;
-intelliflow_Sensor sensor = intelliflow_Sensor_init_zero;
-pb_ostream_t stream = pb_ostream_from_buffer(buffer, sizeof(buffer));
 
 char* value="";
 
 void setup() {
   //status led
   pinMode(BUILTIN_LED, OUTPUT);
-  //serial
+  //serialg
   Serial.begin(115200);
 
   //wifi
   setup_wifi();
   //mqtt
-  client.setServer(mqtt_server, 24075);
+  client.setServer(mqtt_server, mqtt_port);
   client.setCallback(callback);
 }
 
@@ -57,59 +40,35 @@ void loop() {
   if (!client.connected()) {
     reconnect();
   }else{
-    celsius = 24;
-    fahrenheit = 1.8 * celsius + 32;  //celsius converted to fahrenheit --> fahrenheit=1.8*celsius+32
-    bar = 3;                          
-    psi = 1800;
-    ph = 7;
-    ppm = 4;
-    volts = 2;
-    current = 1;
-    cmps = 3;
-    //timestamp = 0;
-
-    value="1";
-    sensor.id.arg=value;
-    sensor.value=celsius;
-    sensor.unit=intelliflow_Sensor_units_celsius;   
-
-    if(encode())
-    {
-      pub();
-    }
-    
-    /*value="1";
-    sensor.id.arg=value;
-    sensor.value=fahrenheit;
-    sensor.unit=intelliflow_Sensor_units_fahrenheit;   
-    
-    if(encode())
-    {
-      pub();
-    }*/
+    intelliflow_Sensor sensor = intelliflow_Sensor_init_zero;
+    strcpy(sensor.id, "ABC123");
+    sensor.value=random(0, 40);
+    sensor.unit = intelliflow_Sensor_units_celsius;   
+    Serial.println(sensor.value);
+    Serial.println(sensor.id);
+    Serial.println(sensor.unit);
+    encode(sensor);
+    Serial.println("-------------------------");
   }
   delay(1000);
 }
 
-bool encode(){
-  if(!pb_encode(&stream, intelliflow_Sensor_fields, &sensor)){
+bool encode(intelliflow_Sensor &sensor){
+  uint8_t buffer[50];
+  pb_ostream_t stream = pb_ostream_from_buffer(buffer, sizeof(buffer));
+  if(!pb_encode(&stream, intelliflow_Sensor_fields , &sensor)){
       Serial.println("Failed to encode");
-      return false;
-  }
-  Serial.println(stream.bytes_written);
-  Serial.printf("%02X\n",buffer);
-  Serial.println(sensor.value);
-  return true;
-}
-bool pub(){
-  messages++;
-  if (!client.publish("sensor", buffer, stream.bytes_written)) {
-    Serial.println(F("Publishing Failed"));
-    resetValues();
-  } else {
-    succes++;
-    Serial.println(F("Publish succesful"));
-    resetValues();
+  }else{
+    for(int i = 0; i<stream.bytes_written; i++){
+      Serial.printf("%02X",buffer[i]);
+    }
+    Serial.println("");
+    if (!client.publish("sensor", buffer, stream.bytes_written)) {
+        Serial.println(F("Publishing Failed"));
+    } else {
+        succes++;
+        Serial.println(F("Publish succesful"));
+    }
   }
 }
 
@@ -174,12 +133,4 @@ void reconnect() {
       delay(5000);
     }
   }
-}
-void resetValues() {
-  value="";
-  sensor.id.arg=value;
-  sensor.value = 0;
-  sensor.unit=intelliflow_Sensor_units_fahrenheit;
-  memset(buffer, 0, sizeof(buffer));
-  stream = pb_ostream_from_buffer(buffer, sizeof(buffer));
 }

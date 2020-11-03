@@ -45,7 +45,9 @@ broker.on('published', function(packet, client) {
         switch(packet.topic){
             case "sensor":
                 var sensorP = root.lookupType("intelliflow.Sensor");
-                sensorJ = sensorP.decode(buffer).toJSON();
+                sensorJ = sensorP.decode(buffer);
+                console.log(sensorJ);
+                sensorJ = sensorJ.toJSON();
                 console.log(sensorJ);
                 break;
             case "hub":
