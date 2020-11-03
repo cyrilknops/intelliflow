@@ -5,31 +5,41 @@
 #define res_pin 7
 #define strt_pin 2
 
-const int ADResetPulse = 1;    
+const int ADResetPulse = 200;    
 const int ADResetDelay = 1;     
 
 void setup() 
 {
  Serial.begin(115200);
  delay (10);
- SPIinitialize(); 
+ 
+ pinMode(cs_pin, OUTPUT); 
+ pinMode(drdy_pin, INPUT); 
+ pinMode(res_pin, OUTPUT); 
+ pinMode(strt_pin, OUTPUT);
+ 
+ SPI.beginTransaction(SPISettings(500000, MSBFIRST, SPI_MODE1)); 
+ delay(200); 
+ SPI.begin();
+ 
  ADreset();
- ADsetup();
+ //ADsetup();
+
 }
 
 void loop() 
 { 
-   if (digitalRead(drdy_pin) == 0)
-       {
-          ADread();
-       }
+//   if (digitalRead(drdy_pin) == 0)
+//       {
+//          ADread();
+//          delay(1000);
+//       }
 }
  
 void ADread()
 {
  digitalWrite(cs_pin, LOW);
  delayMicroseconds(1);   
- delay(250);
  SPI.transfer(0x12);          
 
  int32_t regData;
@@ -64,24 +74,11 @@ void ADsetup()
 void ADreset()  
 {
  digitalWrite( res_pin, LOW);
+ Serial.println("RESET -> LOW");
  delay(ADResetPulse);
  digitalWrite( res_pin , HIGH);
+ Serial.println("RESET -> HIGH");
  delay(ADResetDelay); 
  }
 
  
-void SPIinitialize()
-{
- pinMode(cs_pin, OUTPUT); 
- pinMode(drdy_pin, INPUT); 
- pinMode(res_pin, OUTPUT); 
- pinMode(strt_pin, OUTPUT); 
- digitalWrite(cs_pin, HIGH);  
- digitalWrite(res_pin , HIGH); 
- digitalWrite(strt_pin , HIGH); 
- 
- SPI.beginTransaction(SPISettings(500000, MSBFIRST, SPI_MODE1)); 
- delay(200); 
- SPI.begin();
- 
-}
