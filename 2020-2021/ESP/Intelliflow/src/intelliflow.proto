@@ -6,20 +6,7 @@ package intelliflow;
 message Sensor {
   string id = 1;
   double value = 2;
-  units unit = 3;
-  enum units {
-	default = 0;
-    celsius = 1;
-    fahrenheit = 2;
-    bar = 3;
-    psi = 4;
-    ph = 5;
-    ppm = 6;
-    volts = 7;
-    current = 8;
-    cmps = 9;
-    timestamp = 10;
-  }
+  string unit = 3;
 }
 message Hub {
   string id = 1;
@@ -30,9 +17,10 @@ message Admin {
     options option = 2;
     string command = 3;
     enum options{
-        restart = 0;
-        init = 1;
-        factoryreset = 2;
-        cli = 3;
+		default = 0;
+        restart = 1;
+        init = 2;
+        factoryreset = 3;
+        cli = 4;
     }
 }

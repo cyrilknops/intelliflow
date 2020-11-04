@@ -10,25 +10,12 @@
 #endif
 
 /* Enum definitions */
-typedef enum _intelliflow_Sensor_units {
-    intelliflow_Sensor_units_default = 0,
-    intelliflow_Sensor_units_celsius = 1,
-    intelliflow_Sensor_units_fahrenheit = 2,
-    intelliflow_Sensor_units_bar = 3,
-    intelliflow_Sensor_units_psi = 4,
-    intelliflow_Sensor_units_ph = 5,
-    intelliflow_Sensor_units_ppm = 6,
-    intelliflow_Sensor_units_volts = 7,
-    intelliflow_Sensor_units_current = 8,
-    intelliflow_Sensor_units_cmps = 9,
-    intelliflow_Sensor_units_timestamp = 10
-} intelliflow_Sensor_units;
-
 typedef enum _intelliflow_Admin_options {
-    intelliflow_Admin_options_restart = 0,
-    intelliflow_Admin_options_init = 1,
-    intelliflow_Admin_options_factoryreset = 2,
-    intelliflow_Admin_options_cli = 3
+    intelliflow_Admin_options_default = 0,
+    intelliflow_Admin_options_restart = 1,
+    intelliflow_Admin_options_init = 2,
+    intelliflow_Admin_options_factoryreset = 3,
+    intelliflow_Admin_options_cli = 4
 } intelliflow_Admin_options;
 
 /* Struct definitions */
@@ -46,16 +33,12 @@ typedef struct _intelliflow_Admin {
 typedef struct _intelliflow_Sensor {
     char id[128];
     double value;
-    intelliflow_Sensor_units unit;
+    char unit[128];
 } intelliflow_Sensor;
 
 
 /* Helper constants for enums */
-#define _intelliflow_Sensor_units_MIN intelliflow_Sensor_units_default
-#define _intelliflow_Sensor_units_MAX intelliflow_Sensor_units_timestamp
-#define _intelliflow_Sensor_units_ARRAYSIZE ((intelliflow_Sensor_units)(intelliflow_Sensor_units_timestamp+1))
-
-#define _intelliflow_Admin_options_MIN intelliflow_Admin_options_restart
+#define _intelliflow_Admin_options_MIN intelliflow_Admin_options_default
 #define _intelliflow_Admin_options_MAX intelliflow_Admin_options_cli
 #define _intelliflow_Admin_options_ARRAYSIZE ((intelliflow_Admin_options)(intelliflow_Admin_options_cli+1))
 
@@ -65,10 +48,10 @@ extern "C" {
 #endif
 
 /* Initializer values for message structs */
-#define intelliflow_Sensor_init_default          {"", 0, _intelliflow_Sensor_units_MIN}
+#define intelliflow_Sensor_init_default          {"", 0, ""}
 #define intelliflow_Hub_init_default             {{{NULL}, NULL}, {{NULL}, NULL}}
 #define intelliflow_Admin_init_default           {{{NULL}, NULL}, _intelliflow_Admin_options_MIN, {{NULL}, NULL}}
-#define intelliflow_Sensor_init_zero             {"", 0, _intelliflow_Sensor_units_MIN}
+#define intelliflow_Sensor_init_zero             {"", 0, ""}
 #define intelliflow_Hub_init_zero                {{{NULL}, NULL}, {{NULL}, NULL}}
 #define intelliflow_Admin_init_zero              {{{NULL}, NULL}, _intelliflow_Admin_options_MIN, {{NULL}, NULL}}
 
@@ -86,7 +69,7 @@ extern "C" {
 #define intelliflow_Sensor_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, STRING,   id,                1) \
 X(a, STATIC,   SINGULAR, DOUBLE,   value,             2) \
-X(a, STATIC,   SINGULAR, UENUM,    unit,              3)
+X(a, STATIC,   SINGULAR, STRING,   unit,              3)
 #define intelliflow_Sensor_CALLBACK NULL
 #define intelliflow_Sensor_DEFAULT NULL
 
@@ -113,7 +96,7 @@ extern const pb_msgdesc_t intelliflow_Admin_msg;
 #define intelliflow_Admin_fields &intelliflow_Admin_msg
 
 /* Maximum encoded size of messages (where known) */
-#define intelliflow_Sensor_size                  141
+#define intelliflow_Sensor_size                  269
 /* intelliflow_Hub_size depends on runtime parameters */
 /* intelliflow_Admin_size depends on runtime parameters */
 

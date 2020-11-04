@@ -6,14 +6,13 @@
 #error Regenerate this file with the current version of nanopb generator.
 #endif
 
-PB_BIND(intelliflow_Sensor, intelliflow_Sensor, AUTO)
+PB_BIND(intelliflow_Sensor, intelliflow_Sensor, 2)
 
 
 PB_BIND(intelliflow_Hub, intelliflow_Hub, AUTO)
 
 
 PB_BIND(intelliflow_Admin, intelliflow_Admin, AUTO)
-
 
 
 

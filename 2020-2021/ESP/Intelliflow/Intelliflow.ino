@@ -17,6 +17,7 @@ long lastMsg = 0;
 char msg[50];
 uint32_t  messages = 0;
 uint32_t succes = 0;
+int mqtt_port = 24075;
 
 //protobuf
 int values = 0;
@@ -42,7 +43,7 @@ void loop() {
     
     strcpy(sensor.id, "1");
     sensor.value=random(0, 40);
-    sensor.unit = intelliflow_Sensor_units_celsius;   
+    strcpy(sensor.unit, "°C");   
     Serial.println(sensor.value);
     Serial.println(sensor.id);
     Serial.println(sensor.unit);
@@ -51,7 +52,7 @@ void loop() {
 
     strcpy(sensor.id, "2");
     sensor.value=random(0, 40);
-    sensor.unit = intelliflow_Sensor_units_fahrenheit;   
+    strcpy(sensor.unit, "°F");    
     Serial.println(sensor.value);
     Serial.println(sensor.id);
     Serial.println(sensor.unit);
