@@ -21,8 +21,6 @@ uint32_t succes = 0;
 //protobuf
 int values = 0;
 
-char* value="";
-
 void setup() {
   //status led
   pinMode(BUILTIN_LED, OUTPUT);
@@ -41,9 +39,19 @@ void loop() {
     reconnect();
   }else{
     intelliflow_Sensor sensor = intelliflow_Sensor_init_zero;
-    strcpy(sensor.id, "ABC123");
+    
+    strcpy(sensor.id, "1");
     sensor.value=random(0, 40);
     sensor.unit = intelliflow_Sensor_units_celsius;   
+    Serial.println(sensor.value);
+    Serial.println(sensor.id);
+    Serial.println(sensor.unit);
+    encode(sensor);
+    Serial.println("-------------------------");
+
+    strcpy(sensor.id, "2");
+    sensor.value=random(0, 40);
+    sensor.unit = intelliflow_Sensor_units_fahrenheit;   
     Serial.println(sensor.value);
     Serial.println(sensor.id);
     Serial.println(sensor.unit);
