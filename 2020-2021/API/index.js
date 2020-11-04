@@ -45,6 +45,7 @@ broker.on('published', function(packet, client) {
         switch(packet.topic){
             case "sensor":
                 var sensorP = root.lookupType("intelliflow.Sensor");
+                console.log(buffer);
                 sensorJ = sensorP.decode(buffer);
                 console.log(sensorJ);
                 sensorJ = sensorJ.toJSON();
@@ -79,7 +80,7 @@ protobuf.load("./proto/intelliflow.proto", function(err, root) {
     }
     console.log(buffer);
     broker.publish(packet, ()=>{
-       console.log("buffer send");
+        console.log("buffer send");
     });
 });
 app.listen(port, () => console.log(`App listening at http://localhost:${port}`));

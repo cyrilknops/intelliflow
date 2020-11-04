@@ -21,16 +21,16 @@
     app.controller('mainController', Cntr);
     function Cntr($http, $timeout) {
         var vm = this;
-        vm.port = 3000;
+        vm.port = 8888;
         vm.data = "";
         var error = false;
         vm.getData = function(){
             $http({
                 method: 'get',
-                url   : "http://localhost:"+vm.port+"/api/hub"
+                url   : "http://home.iwg-it.com:"+vm.port+"/api/sensor"
             }).then(function (res) {
                 console.log(res.data);
-                vm.data = res.data;           
+                vm.data = res.data;
             }).catch(function (err) {
                 error = true;
             });
