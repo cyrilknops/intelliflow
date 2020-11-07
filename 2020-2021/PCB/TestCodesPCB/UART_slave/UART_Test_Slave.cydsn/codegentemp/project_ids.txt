@@ -1,0 +1,7 @@
+C:\Users\11800025\Documents\PSoC Creator\UART_slave\Design01.cydsn\Design01.cyprj|78470eac-b2bb-49cf-8916-ef88f9ebf115
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|1738371c-a28c-4134-8f36-46e17bfcee55
+C:\Users\11800025\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|2891f640-c4be-430c-82a5-3083ec4b8b54
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|75484555-cdf1-42db-a22a-c0246073caef
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|6590932e-81d7-495a-b92d-41038bea0b4d
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|ef3906e1-0b1c-49d1-931a-494452408be2
+C:\Users\11800025\Documents\PSoC Creator\UART_slave\UART_Test_Slave.cydsn\UART_Test_Slave.cyprj|9bd4a27f-2abe-4c7e-8bc1-e6a66a3e4603
