@@ -206,3 +206,28 @@ fabric.properties
 # End of https://www.toptal.com/developers/gitignore/api/phpstorm
 
 config.h
+
+# Created by https://www.toptal.com/developers/gitignore/api/psoccreator
+# Edit at https://www.toptal.com/developers/gitignore?templates=psoccreator
+
+### PSoCCreator ###
+# Project Settings
+*.cywrk.*
+*.cyprj.*
+
+# Generated Assets and Resources
+Debug/
+Release/
+Export/
+*/codegentemp
+*/Generated_Source
+*_datasheet.pdf
+*_timing.html
+*.cycdx
+*.cyfit
+*.rpt
+*.svd
+*.log
+*.zip
+
+# End of https://www.toptal.com/developers/gitignore/api/psoccreator

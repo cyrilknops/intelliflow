@@ -1,0 +1,40 @@
+dont_use_io iocell 3 2
+dont_use_io iocell 3 3
+set_location "\UART_ESP:BUART:counter_load_not\" macrocell 1 1 1 1
+set_location "\UART_ESP:BUART:tx_bitclk\" macrocell 1 1 1 2
+set_location "\UART_ESP:BUART:tx_state_2\" macrocell 1 1 1 0
+set_location "\UART_ESP:BUART:txn\" macrocell 1 1 0 0
+set_location "\UART_ESP:BUART:rx_state_2\" macrocell 0 0 1 0
+set_location "\UART_ESP:BUART:sTX:TxSts\" statusicell 0 1 4 
+set_location "\UART_ESP:BUART:tx_status_2\" macrocell 0 0 1 3
+set_location "\UART_ESP:BUART:sTX:TxShifter:u0\" datapathcell 0 1 2 
+set_location "\UART_ESP:BUART:pollcount_1\" macrocell 0 1 0 2
+set_location "\UART_ESP:BUART:sRX:RxShifter:u0\" datapathcell 0 0 2 
+set_location "\UART_ESP:BUART:sRX:RxSts\" statusicell 1 0 4 
+set_location "\UART_ESP:BUART:rx_state_0\" macrocell 0 0 0 0
+set_location "\UART_ESP:BUART:tx_ctrl_mark_last\" macrocell 1 0 0 1
+set_location "\UART_ESP:BUART:sRX:RxBitCounter\" count7cell 0 0 7 
+set_location "\UART_ESP:BUART:tx_state_1\" macrocell 1 1 0 1
+set_location "\UART_ESP:BUART:sTX:sCLOCK:TxBitClkGen\" datapathcell 1 1 2 
+set_location "\UART_ESP:BUART:rx_bitclk_enable\" macrocell 0 1 1 2
+set_location "\UART_ESP:BUART:rx_counter_load\" macrocell 0 0 1 1
+set_location "\UART_ESP:BUART:rx_status_3\" macrocell 0 0 0 3
+set_location "\UART_ESP:BUART:rx_status_4\" macrocell 1 0 0 0
+set_location "\UART_ESP:BUART:rx_load_fifo\" macrocell 0 0 0 1
+set_location "\UART_ESP:BUART:rx_postpoll\" macrocell 0 1 1 1
+set_location "\UART_ESP:BUART:pollcount_0\" macrocell 0 1 1 0
+set_location "\UART_ESP:BUART:rx_last\" macrocell 1 0 0 3
+set_location "\UART_ESP:BUART:tx_status_0\" macrocell 0 1 0 1
+set_location "\UART_ESP:BUART:rx_state_stop1_reg\" macrocell 0 0 1 2
+set_location "Net_385" macrocell 1 0 1 0
+set_location "\UART_ESP:BUART:rx_state_3\" macrocell 0 0 0 2
+set_location "\UART_ESP:BUART:tx_state_0\" macrocell 0 1 0 0
+set_location "\UART_ESP:BUART:rx_status_5\" macrocell 1 0 0 2
+set_location "ClockBlock" m0s8clockblockcell -1 -1 0
+set_io "\UART_Putty:tx(0)\" iocell 4 1
+set_io "\UART_Putty:rx(0)\" iocell 4 0
+set_io "Rx_1(0)" iocell 0 4
+set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
+set_location "RX_isr" interrupt -1 -1 0
+set_location "\UART_Putty:SCB\" m0s8scbcell -1 -1 0
+set_io "Tx_1(0)" iocell 3 1
