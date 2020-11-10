@@ -1,5 +1,5 @@
--- Project:   C:\Users\11800025\Documents\PSoC Creator\PSoc_Slave_Codes\UART_Slave.cydsn\UART_Slave.cyprj
--- Generated: 11/08/2020 22:50:17
+-- Project:   C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\UART_Slave.cydsn\UART_Slave.cyprj
+-- Generated: 11/10/2020 14:52:34
 -- PSoC Creator  4.2
 
 ENTITY UART_Slave IS

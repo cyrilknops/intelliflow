@@ -1,5 +1,5 @@
 -- Project:   UART_Slave
--- Generated: 11/08/2020 22:50:14
+-- Generated: 11/10/2020 14:52:29
 -- PSoC Creator  4.2
 
 ENTITY UART_Slave IS

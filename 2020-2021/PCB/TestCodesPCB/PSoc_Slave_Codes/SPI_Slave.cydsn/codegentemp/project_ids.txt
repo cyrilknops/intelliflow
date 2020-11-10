@@ -1,0 +1,8 @@
+C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\UART_Slave.cydsn\UART_Slave.cyprj|5e7d8cf8-6328-4378-bad6-fe4b30a110be
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|5dff26dc-00d6-4524-b0cd-cf2d157304c3
+C:\Users\11800025\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|f3624ce8-a63e-49d7-9060-c5d76c28de9f
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|17e4473e-a934-41d3-80e5-4881545c16dc
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|48c89f83-6f0c-4baa-9752-9cd9f1a6e2b8
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|00959b7c-8f77-4c8e-8b0f-dbe5a57c7457
+C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\I2C_slave.cydsn\I2C_slave.cyprj|65985033-65f7-40ac-a602-9a32c16396f7
+C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave.cydsn\SPI_Slave.cyprj|e769d534-4175-40b8-a899-8ca0c0195f32

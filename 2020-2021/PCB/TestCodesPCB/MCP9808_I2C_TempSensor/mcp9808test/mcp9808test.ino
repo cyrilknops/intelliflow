@@ -10,17 +10,20 @@ products from Adafruit!
 /**************************************************************************/
 
 #include <Wire.h>
-#include <ESP8266WiFi.h>
-#include <ESP8266HTTPClient.h>
 #include "Adafruit_MCP9808.h"
 
 // Create the MCP9808 temperature sensor object
 Adafruit_MCP9808 tempsensor = Adafruit_MCP9808();
 
+
+
 void setup() {
   Serial.begin(9600);
   while (!Serial); //waits for serial terminal to be open, necessary in newer arduino boards.
   Serial.println("MCP9808 demo");
+
+   // Wire.setClock(100000); 100 khz
+   Wire.setClock(400000); // 400 khz
   
   // Make sure the sensor is found, you can also pass in a different i2c
   // address with tempsensor.begin(0x19) for example, also can be left in blank for default address use
@@ -35,7 +38,9 @@ void setup() {
   //  1  0  1   0x1D
   //  1  1  0   0x1E
   //  1  1  1   0x1F
-  if (!tempsensor.begin(0x18)) {
+ 
+  if (!tempsensor.begin(0x18))
+  {
     Serial.println("Couldn't find MCP9808! Check your connections and verify the address is correct.");
     while (1);
   }

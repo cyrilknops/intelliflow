@@ -1,4 +1,4 @@
-C:\Users\11800025\Documents\PSoC Creator\PSoc_Slave_Codes\UART_Slave.cydsn\TopDesign\TopDesign.cysch
+C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\UART_Slave.cydsn\TopDesign\TopDesign.cysch
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\SCB_P4_v4_0\SCB_P4_v4_0.cysym
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\SCB_P4_v4_0\SCB_P4_v4_0.pdf
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\SCB_P4_v4_0\SCB_P4_v4_0.cycdx
@@ -181,7 +181,7 @@ C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComp
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\UART_v2_50\Custom\Resources.resx
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.cysym
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v
-C:\Users\11800025\Documents\PSoC Creator\PSoc_Slave_Codes\UART_Slave.cydsn\UART_Slave.cydwr
+C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\UART_Slave.cydsn\UART_Slave.cydwr
 C:\Users\11800025\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Em_EEPROM_Dynamic_v2_20\API\cy_em_eeprom.c
 C:\Users\11800025\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Em_EEPROM_Dynamic_v2_20\API\cy_em_eeprom.h
 C:\Users\11800025\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_81\PSoC4\API\cm0gcc.ld
