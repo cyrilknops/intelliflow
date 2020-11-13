@@ -2,7 +2,7 @@
 --	Conversion of SPI_Slave.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Tue Nov 10 17:33:17 2020
+--	Fri Nov 13 21:18:04 2020
 --
 
 USE cypress.cypress.all;
@@ -51,16 +51,16 @@ SIGNAL Net_21 : bit;
 SIGNAL Net_6 : bit;
 SIGNAL Net_5 : bit;
 SIGNAL \UART_Putty:Net_1028\ : bit;
-SIGNAL Net_2 : bit;
 SIGNAL Net_11 : bit;
 SIGNAL Net_12 : bit;
 SIGNAL Net_13 : bit;
 SIGNAL Net_14 : bit;
 SIGNAL Net_15 : bit;
 SIGNAL Net_16 : bit;
+SIGNAL Net_2 : bit;
+SIGNAL Net_22 : bit;
 SIGNAL Net_17 : bit;
 SIGNAL Net_19 : bit;
-SIGNAL Net_22 : bit;
 SIGNAL tmpOE__MOSI_net_0 : bit;
 SIGNAL Net_102 : bit;
 SIGNAL tmpIO_0__MOSI_net_0 : bit;
@@ -77,8 +77,14 @@ SIGNAL tmpFB_0__MISO_net_0 : bit;
 SIGNAL tmpIO_0__MISO_net_0 : bit;
 TERMINAL tmpSIOVREF__MISO_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__MISO_net_0 : bit;
-SIGNAL \SPI_Slave:BSPIS:cnt_reset\ : bit;
+SIGNAL Net_52 : bit;
+SIGNAL tmpOE__SS_net_0 : bit;
 SIGNAL Net_104 : bit;
+SIGNAL tmpIO_0__SS_net_0 : bit;
+TERMINAL tmpSIOVREF__SS_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__SS_net_0 : bit;
+SIGNAL Net_35 : bit;
+SIGNAL \SPI_Slave:BSPIS:cnt_reset\ : bit;
 SIGNAL \SPI_Slave:BSPIS:inv_ss\ : bit;
 SIGNAL \SPI_Slave:BSPIS:tx_load\ : bit;
 SIGNAL \SPI_Slave:BSPIS:load\ : bit;
@@ -137,8 +143,7 @@ SIGNAL \SPI_Slave:BSPIS:count_2\ : bit;
 SIGNAL \SPI_Slave:BSPIS:count_1\ : bit;
 SIGNAL \SPI_Slave:BSPIS:count_0\ : bit;
 SIGNAL \SPI_Slave:BSPIS:dpcounter_zero\ : bit;
-SIGNAL Net_33 : bit;
-SIGNAL Net_35 : bit;
+SIGNAL Net_53 : bit;
 SIGNAL \SPI_Slave:BSPIS:mosi_tmp\ : bit;
 SIGNAL \SPI_Slave:BSPIS:mosi_to_dp\ : bit;
 SIGNAL \SPI_Slave:BSPIS:reset\ : bit;
@@ -197,8 +202,7 @@ SIGNAL \SPI_Slave:BSPIS:sR8:Dp:f1_bus_stat_reg\ : bit;
 ATTRIBUTE port_state_att of \SPI_Slave:BSPIS:sR8:Dp:f1_bus_stat_reg\:SIGNAL IS 2;
 SIGNAL \SPI_Slave:BSPIS:sR8:Dp:f1_blk_stat_reg\ : bit;
 ATTRIBUTE port_state_att of \SPI_Slave:BSPIS:sR8:Dp:f1_blk_stat_reg\:SIGNAL IS 2;
-SIGNAL \SPI_Slave:Net_176\ : bit;
-SIGNAL Net_36 : bit;
+SIGNAL Net_56 : bit;
 SIGNAL \SPI_Slave:BSPIS:dpcounter_one_reg\\D\ : bit;
 SIGNAL \SPI_Slave:BSPIS:mosi_buf_overrun_fin\\D\ : bit;
 SIGNAL \SPI_Slave:BSPIS:mosi_tmp\\D\ : bit;
@@ -208,6 +212,8 @@ zero <=  ('0') ;
 
 one <=  ('1') ;
 
+\SPI_Slave:BSPIS:inv_ss\ <= (not Net_104);
+
 \SPI_Slave:BSPIS:tx_load\ <= ((not \SPI_Slave:BSPIS:count_3\ and not \SPI_Slave:BSPIS:count_2\ and not \SPI_Slave:BSPIS:count_1\ and \SPI_Slave:BSPIS:count_0\));
 
 \SPI_Slave:BSPIS:byte_complete\ <= ((not \SPI_Slave:BSPIS:dpcounter_one_reg\ and \SPI_Slave:BSPIS:dpcounter_one_fin\));
@@ -215,6 +221,8 @@ one <=  ('1') ;
 \SPI_Slave:BSPIS:rx_buf_overrun\ <= ((not \SPI_Slave:BSPIS:mosi_buf_overrun_fin\ and \SPI_Slave:BSPIS:mosi_buf_overrun_reg\));
 
 \SPI_Slave:BSPIS:dp_clk_src\ <= (not Net_103);
+
+Net_23 <= ((not Net_104 and \SPI_Slave:BSPIS:miso_from_dp\));
 
 \SPI_Slave:BSPIS:mosi_buf_overrun\ <= ((not \SPI_Slave:BSPIS:count_3\ and not \SPI_Slave:BSPIS:count_2\ and not \SPI_Slave:BSPIS:count_1\ and \SPI_Slave:BSPIS:dpMOSI_fifo_full\ and \SPI_Slave:BSPIS:count_0\));
 
@@ -609,9 +617,93 @@ MISO:cy_psoc3_pins_v1_10
 		out_clock_en=>one,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__MISO_net_0);
+Clock:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"99f5a6b3-f6b1-479c-84bc-62c73313af28",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"83333333.3333333",
+		is_direct=>'0',
+		is_digital=>'1')
+	PORT MAP(clock_out=>Net_52,
+		dig_domain_out=>open);
+SS:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba",
+		drive_mode=>"001",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"0",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"I",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"00",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(one),
+		y=>(zero),
+		fb=>Net_104,
+		analog=>(open),
+		io=>(tmpIO_0__SS_net_0),
+		siovref=>(tmpSIOVREF__SS_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>one,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>one,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__SS_net_0);
+RX_isr:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_35);
 \SPI_Slave:BSPIS:ClkEn\:cy_psoc3_udb_clock_enable_v1_0
 	GENERIC MAP(sync_mode=>'1')
-	PORT MAP(clock_in=>\SPI_Slave:Net_81\,
+	PORT MAP(clock_in=>Net_52,
 		enable=>one,
 		clock_out=>\SPI_Slave:BSPIS:clock_fin\);
 \SPI_Slave:BSPIS:PrcClkEn\:cy_psoc3_udb_clock_enable_v1_0
@@ -647,9 +739,9 @@ MISO:cy_psoc3_pins_v1_10
 		cy_route_en=>'1',
 		cy_alt_mode=>'0')
 	PORT MAP(clock=>\SPI_Slave:BSPIS:dp_clock\,
-		reset=>zero,
+		reset=>Net_104,
 		load=>zero,
-		enable=>one,
+		enable=>\SPI_Slave:BSPIS:inv_ss\,
 		count=>(\SPI_Slave:BSPIS:count_6\, \SPI_Slave:BSPIS:count_5\, \SPI_Slave:BSPIS:count_4\, \SPI_Slave:BSPIS:count_3\,
 			\SPI_Slave:BSPIS:count_2\, \SPI_Slave:BSPIS:count_1\, \SPI_Slave:BSPIS:count_0\),
 		tc=>open);
@@ -661,7 +753,7 @@ MISO:cy_psoc3_pins_v1_10
 		clock=>\SPI_Slave:BSPIS:clock_fin\,
 		status=>(\SPI_Slave:BSPIS:byte_complete\, zero, zero, zero,
 			\SPI_Slave:BSPIS:miso_tx_empty_reg_fin\, \SPI_Slave:BSPIS:tx_status_1\, \SPI_Slave:BSPIS:tx_status_0\),
-		interrupt=>Net_33);
+		interrupt=>Net_53);
 \SPI_Slave:BSPIS:RxStsReg\:cy_psoc3_statusi
 	GENERIC MAP(cy_force_order=>'1',
 		cy_md_select=>"0100000",
@@ -695,7 +787,7 @@ MISO:cy_psoc3_pins_v1_10
 		f1_blk_sync=>'1')
 	PORT MAP(reset=>zero,
 		clk=>\SPI_Slave:BSPIS:dp_clock\,
-		cs_addr=>(one, zero, \SPI_Slave:BSPIS:tx_load\),
+		cs_addr=>(\SPI_Slave:BSPIS:inv_ss\, zero, \SPI_Slave:BSPIS:tx_load\),
 		route_si=>\SPI_Slave:BSPIS:mosi_to_dp\,
 		route_ci=>zero,
 		f0_load=>zero,
@@ -713,7 +805,7 @@ MISO:cy_psoc3_pins_v1_10
 		ov_msb=>open,
 		co_msb=>open,
 		cmsb=>open,
-		so=>Net_23,
+		so=>\SPI_Slave:BSPIS:miso_from_dp\,
 		f0_bus_stat=>\SPI_Slave:BSPIS:tx_status_1\,
 		f0_blk_stat=>\SPI_Slave:BSPIS:dpMISO_fifo_empty\,
 		f1_bus_stat=>\SPI_Slave:BSPIS:dpMOSI_fifo_not_empty\,
@@ -757,16 +849,10 @@ MISO:cy_psoc3_pins_v1_10
 		pi=>(zero, zero, zero, zero,
 			zero, zero, zero, zero),
 		po=>open);
-\SPI_Slave:IntClock\:cy_clock_v1_0
-	GENERIC MAP(cy_registers=>"",
-		id=>"808d99a9-d87f-4725-b6d1-34cf48383087/426fcbe0-714d-4404-8fa8-581ff40c30f1",
-		source_clock_id=>"",
-		divisor=>0,
-		period=>"250000000",
-		is_direct=>'0',
-		is_digital=>'1')
-	PORT MAP(clock_out=>\SPI_Slave:Net_81\,
-		dig_domain_out=>open);
+\SPI_Slave:RxInternalInterrupt\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_35);
 \SPI_Slave:BSPIS:dpcounter_one_reg\:cy_dff
 	PORT MAP(d=>\SPI_Slave:BSPIS:dpcounter_one_fin\,
 		clk=>\SPI_Slave:BSPIS:clock_fin\,

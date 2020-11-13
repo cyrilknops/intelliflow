@@ -30,7 +30,7 @@
 
 #define SPI_Slave_DATA_WIDTH                  (8u)
 #define SPI_Slave_INTERNAL_TX_INT_ENABLED     (0u)
-#define SPI_Slave_INTERNAL_RX_INT_ENABLED     (0u)
+#define SPI_Slave_INTERNAL_RX_INT_ENABLED     (1u)
 #define SPI_Slave_MODE_USE_ZERO               (1u)
 #define SPI_Slave_BIDIRECTIONAL_MODE          (0u)
 #define SPI_Slave_MODE                        (0u)
@@ -38,9 +38,9 @@
 #define SPI_Slave_FIFO_SIZE                  (4u)
 /* Internal interrupt handling */
 #define SPI_Slave_TX_BUFFER_SIZE             (4u)
-#define SPI_Slave_RX_BUFFER_SIZE             (4u)
+#define SPI_Slave_RX_BUFFER_SIZE             (8u)
 #define SPI_Slave_INTERNAL_TX_INT_ENABLED    (0u)
-#define SPI_Slave_INTERNAL_RX_INT_ENABLED    (0u)
+#define SPI_Slave_INTERNAL_RX_INT_ENABLED    (1u)
 
 #define SPI_Slave_TX_SOFTWARE_BUF_ENABLED    ((0u != SPI_Slave_INTERNAL_TX_INT_ENABLED) && \
                                                      (SPI_Slave_TX_BUFFER_SIZE > SPI_Slave_FIFO_SIZE))
@@ -170,9 +170,9 @@ extern uint8 SPI_Slave_initVar;
                                             SPI_Slave_INT_ON_BYTE_COMP)
 
 #define SPI_Slave_INT_ON_RX_EMPTY     (uint8)(0u << SPI_Slave_STS_RX_FIFO_EMPTY_SHIFT)
-#define SPI_Slave_INT_ON_RX_NOT_EMPTY (uint8)(0u << SPI_Slave_STS_RX_FIFO_NOT_EMPTY_SHIFT)
+#define SPI_Slave_INT_ON_RX_NOT_EMPTY (uint8)(1u << SPI_Slave_STS_RX_FIFO_NOT_EMPTY_SHIFT)
 #define SPI_Slave_INT_ON_RX_OVER      (uint8)(0u << SPI_Slave_STS_RX_FIFO_OVERRUN_SHIFT)
-#define SPI_Slave_INT_ON_RX_FULL      (uint8)(0u << SPI_Slave_STS_RX_FIFO_FULL_SHIFT)
+#define SPI_Slave_INT_ON_RX_FULL      (uint8)(1u << SPI_Slave_STS_RX_FIFO_FULL_SHIFT)
 
 #define SPI_Slave_RX_INIT_INTERRUPTS_MASK (SPI_Slave_INT_ON_RX_EMPTY | \
                                             SPI_Slave_INT_ON_RX_NOT_EMPTY | SPI_Slave_INT_ON_RX_OVER | \
@@ -187,7 +187,7 @@ extern uint8 SPI_Slave_initVar;
 
 
 #define SPI_Slave_TX_BUFFER_SIZE         (4u)
-#define SPI_Slave_RX_BUFFER_SIZE         (4u)
+#define SPI_Slave_RX_BUFFER_SIZE         (8u)
 
 /* Following definitions are for version Compatibility, they are obsolete.
 *  Please do not use it in new projects

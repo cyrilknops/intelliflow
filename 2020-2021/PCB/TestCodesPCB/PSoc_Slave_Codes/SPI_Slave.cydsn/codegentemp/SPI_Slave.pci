@@ -1,5 +1,5 @@
 # SPI_Slave
-# 2020-11-10 16:33:19Z
+# 2020-11-13 20:18:05Z
 
 # IO_2@[IOP=(3)][IoId=(2)] is reserved: SWDDebugEnabled
 dont_use_io iocell 3 2
@@ -11,3 +11,4 @@ set_io "\UART_Putty:rx(0)\" iocell 0 4
 set_io "MOSI(0)" iocell 3 0
 set_io "SCLK(0)" iocell 0 6
 set_io "MISO(0)" iocell 3 1
+set_io "SS(0)" iocell 3 5

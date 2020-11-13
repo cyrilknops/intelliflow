@@ -31,22 +31,44 @@
 #include "project.h"
 #include <stdlib.h>
 
+char8 recieve[6];
+char8 send[] = "PSOC4!";
+
+uint8 count = 0;
+
+
+CY_ISR(RX_Interrupt)
+{
+  
+    recieve[count] = SPI_Slave_ReadRxData();
+   
+    if(recieve[0] == 'E' )
+    {
+    count++;
+    }
+   
+    if(count == 6)
+    {
+        count = 0;
+        UART_Putty_UartPutString(recieve);
+        UART_Putty_UartPutCRLF(0); 
+        memset( recieve, ' ' , sizeof(recieve)); 
+        
+    }
+
+}
+
 int main()
 {
-   
+    CyGlobalIntEnable;
     UART_Putty_Start();
     SPI_Slave_Start();
- 
     
+    RX_isr_StartEx(RX_Interrupt);
     UART_Putty_UartPutString("Slave read\n\r");
    
     for(;;)
     {
-        if(SPI_Slave_ReadRxData() != 0)
-        {
-           
-                UART_Putty_UartPutChar(SPI_Slave_ReadByte());
-        }
     }
     
 }

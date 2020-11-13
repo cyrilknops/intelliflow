@@ -1,6 +1,6 @@
 -- Project:   C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave.cydsn\SPI_Slave.cyprj
--- Generated: 11/10/2020 17:33:24
--- PSoC Creator  4.2
+-- Generated: 11/13/2020 21:18:06
+-- PSoC Creator  4.4
 
 ENTITY SPI_Slave IS
     PORT(
@@ -8,7 +8,8 @@ ENTITY SPI_Slave IS
         \UART_Putty:rx(0)_PAD\ : IN std_ulogic;
         MOSI(0)_PAD : IN std_ulogic;
         SCLK(0)_PAD : IN std_ulogic;
-        MISO(0)_PAD : OUT std_ulogic);
+        MISO(0)_PAD : OUT std_ulogic;
+        SS(0)_PAD : IN std_ulogic);
     ATTRIBUTE voltage_VDDA OF __DEFAULT__ : ENTITY IS 3.3e0;
     ATTRIBUTE voltage_VDDD OF __DEFAULT__ : ENTITY IS 3.3e0;
 END SPI_Slave;
@@ -27,13 +28,20 @@ ARCHITECTURE __DEFAULT__ OF SPI_Slave IS
     SIGNAL Net_102 : bit;
     SIGNAL Net_103 : bit;
     ATTRIBUTE udbclken_assigned OF Net_103 : SIGNAL IS "False";
+    SIGNAL Net_104 : bit;
     SIGNAL Net_23 : bit;
+    ATTRIBUTE placement_force OF Net_23 : SIGNAL IS "U(0,0,A)2";
     SIGNAL Net_3 : bit;
+    SIGNAL Net_35 : bit;
     SIGNAL Net_5 : bit;
+    SIGNAL Net_52_digital : bit;
+    ATTRIBUTE udbclken_assigned OF Net_52_digital : SIGNAL IS "True";
+    ATTRIBUTE global_signal OF Net_52_digital : SIGNAL IS true;
     SIGNAL Net_6 : bit;
     SIGNAL SCLK(0)__PA : bit;
+    SIGNAL SS(0)__PA : bit;
     SIGNAL \SPI_Slave:BSPIS:byte_complete\ : bit;
-    ATTRIBUTE placement_force OF \SPI_Slave:BSPIS:byte_complete\ : SIGNAL IS "U(1,1,A)2";
+    ATTRIBUTE placement_force OF \SPI_Slave:BSPIS:byte_complete\ : SIGNAL IS "U(1,0,A)2";
     SIGNAL \SPI_Slave:BSPIS:count_0\ : bit;
     SIGNAL \SPI_Slave:BSPIS:count_1\ : bit;
     SIGNAL \SPI_Slave:BSPIS:count_2\ : bit;
@@ -47,29 +55,29 @@ ARCHITECTURE __DEFAULT__ OF SPI_Slave IS
     SIGNAL \SPI_Slave:BSPIS:dpMOSI_fifo_not_empty\ : bit;
     SIGNAL \SPI_Slave:BSPIS:dpcounter_one_fin\ : bit;
     SIGNAL \SPI_Slave:BSPIS:dpcounter_one_reg\ : bit;
-    ATTRIBUTE placement_force OF \SPI_Slave:BSPIS:dpcounter_one_reg\ : SIGNAL IS "U(1,1,A)1";
+    ATTRIBUTE placement_force OF \SPI_Slave:BSPIS:dpcounter_one_reg\ : SIGNAL IS "U(1,0,A)1";
+    SIGNAL \SPI_Slave:BSPIS:inv_ss\ : bit;
+    ATTRIBUTE placement_force OF \SPI_Slave:BSPIS:inv_ss\ : SIGNAL IS "U(0,1,B)1";
+    SIGNAL \SPI_Slave:BSPIS:miso_from_dp\ : bit;
     SIGNAL \SPI_Slave:BSPIS:miso_tx_empty_reg_fin\ : bit;
     SIGNAL \SPI_Slave:BSPIS:mosi_buf_overrun\ : bit;
-    ATTRIBUTE placement_force OF \SPI_Slave:BSPIS:mosi_buf_overrun\ : SIGNAL IS "U(0,1,B)3";
+    ATTRIBUTE placement_force OF \SPI_Slave:BSPIS:mosi_buf_overrun\ : SIGNAL IS "U(0,0,A)3";
     SIGNAL \SPI_Slave:BSPIS:mosi_buf_overrun_fin\ : bit;
-    ATTRIBUTE placement_force OF \SPI_Slave:BSPIS:mosi_buf_overrun_fin\ : SIGNAL IS "U(1,0,A)1";
+    ATTRIBUTE placement_force OF \SPI_Slave:BSPIS:mosi_buf_overrun_fin\ : SIGNAL IS "U(0,0,A)1";
     SIGNAL \SPI_Slave:BSPIS:mosi_buf_overrun_reg\ : bit;
     SIGNAL \SPI_Slave:BSPIS:mosi_tmp\ : bit;
-    ATTRIBUTE placement_force OF \SPI_Slave:BSPIS:mosi_tmp\ : SIGNAL IS "U(0,1,B)1";
+    ATTRIBUTE placement_force OF \SPI_Slave:BSPIS:mosi_tmp\ : SIGNAL IS "U(0,1,B)0";
     SIGNAL \SPI_Slave:BSPIS:mosi_to_dp\ : bit;
-    ATTRIBUTE placement_force OF \SPI_Slave:BSPIS:mosi_to_dp\ : SIGNAL IS "U(0,1,A)2";
+    ATTRIBUTE placement_force OF \SPI_Slave:BSPIS:mosi_to_dp\ : SIGNAL IS "U(0,1,A)0";
     SIGNAL \SPI_Slave:BSPIS:rx_buf_overrun\ : bit;
-    ATTRIBUTE placement_force OF \SPI_Slave:BSPIS:rx_buf_overrun\ : SIGNAL IS "U(1,0,A)0";
+    ATTRIBUTE placement_force OF \SPI_Slave:BSPIS:rx_buf_overrun\ : SIGNAL IS "U(0,0,A)0";
     SIGNAL \SPI_Slave:BSPIS:rx_status_4\ : bit;
-    ATTRIBUTE placement_force OF \SPI_Slave:BSPIS:rx_status_4\ : SIGNAL IS "U(1,0,B)1";
+    ATTRIBUTE placement_force OF \SPI_Slave:BSPIS:rx_status_4\ : SIGNAL IS "U(1,1,A)0";
     SIGNAL \SPI_Slave:BSPIS:tx_load\ : bit;
-    ATTRIBUTE placement_force OF \SPI_Slave:BSPIS:tx_load\ : SIGNAL IS "U(0,0,A)1";
+    ATTRIBUTE placement_force OF \SPI_Slave:BSPIS:tx_load\ : SIGNAL IS "U(0,1,B)3";
     SIGNAL \SPI_Slave:BSPIS:tx_status_0\ : bit;
-    ATTRIBUTE placement_force OF \SPI_Slave:BSPIS:tx_status_0\ : SIGNAL IS "U(1,1,A)0";
+    ATTRIBUTE placement_force OF \SPI_Slave:BSPIS:tx_status_0\ : SIGNAL IS "U(1,0,A)0";
     SIGNAL \SPI_Slave:BSPIS:tx_status_1\ : bit;
-    SIGNAL \SPI_Slave:Net_81_digital\ : bit;
-    ATTRIBUTE udbclken_assigned OF \SPI_Slave:Net_81_digital\ : SIGNAL IS "True";
-    ATTRIBUTE global_signal OF \SPI_Slave:Net_81_digital\ : SIGNAL IS true;
     SIGNAL \UART_Putty:Net_847_ff2\ : bit;
     ATTRIBUTE global_signal OF \UART_Putty:Net_847_ff2\ : SIGNAL IS true;
     SIGNAL \UART_Putty:miso_s_wire\ : bit;
@@ -85,7 +93,6 @@ ARCHITECTURE __DEFAULT__ OF SPI_Slave IS
     SIGNAL \\\UART_Putty:tx(0)\\__PA\ : bit;
     SIGNAL \UART_Putty:tx_wire\ : bit;
     SIGNAL __ONE__ : bit;
-    ATTRIBUTE placement_force OF __ONE__ : SIGNAL IS "U(1,1,B)3";
     ATTRIBUTE POWER OF __ONE__ : SIGNAL IS true;
     SIGNAL __ZERO__ : bit;
     ATTRIBUTE GROUND OF __ZERO__ : SIGNAL IS true;
@@ -106,39 +113,45 @@ ARCHITECTURE __DEFAULT__ OF SPI_Slave IS
     ATTRIBUTE Location OF SCLK(0) : LABEL IS "P0[6]";
     ATTRIBUTE lib_model OF MISO(0) : LABEL IS "iocell5";
     ATTRIBUTE Location OF MISO(0) : LABEL IS "P3[1]";
-    ATTRIBUTE lib_model OF \SPI_Slave:BSPIS:tx_load\ : LABEL IS "macrocell1";
-    ATTRIBUTE Location OF \SPI_Slave:BSPIS:tx_load\ : LABEL IS "U(0,0)";
-    ATTRIBUTE lib_model OF \SPI_Slave:BSPIS:byte_complete\ : LABEL IS "macrocell2";
-    ATTRIBUTE Location OF \SPI_Slave:BSPIS:byte_complete\ : LABEL IS "U(1,1)";
-    ATTRIBUTE lib_model OF \SPI_Slave:BSPIS:rx_buf_overrun\ : LABEL IS "macrocell3";
-    ATTRIBUTE Location OF \SPI_Slave:BSPIS:rx_buf_overrun\ : LABEL IS "U(1,0)";
-    ATTRIBUTE lib_model OF \SPI_Slave:BSPIS:mosi_buf_overrun\ : LABEL IS "macrocell4";
-    ATTRIBUTE Location OF \SPI_Slave:BSPIS:mosi_buf_overrun\ : LABEL IS "U(0,1)";
-    ATTRIBUTE lib_model OF \SPI_Slave:BSPIS:tx_status_0\ : LABEL IS "macrocell5";
-    ATTRIBUTE Location OF \SPI_Slave:BSPIS:tx_status_0\ : LABEL IS "U(1,1)";
-    ATTRIBUTE lib_model OF \SPI_Slave:BSPIS:rx_status_4\ : LABEL IS "macrocell6";
-    ATTRIBUTE Location OF \SPI_Slave:BSPIS:rx_status_4\ : LABEL IS "U(1,0)";
-    ATTRIBUTE lib_model OF \SPI_Slave:BSPIS:mosi_to_dp\ : LABEL IS "macrocell7";
+    ATTRIBUTE lib_model OF SS(0) : LABEL IS "iocell6";
+    ATTRIBUTE Location OF SS(0) : LABEL IS "P3[5]";
+    ATTRIBUTE lib_model OF \SPI_Slave:BSPIS:inv_ss\ : LABEL IS "macrocell1";
+    ATTRIBUTE Location OF \SPI_Slave:BSPIS:inv_ss\ : LABEL IS "U(0,1)";
+    ATTRIBUTE lib_model OF \SPI_Slave:BSPIS:tx_load\ : LABEL IS "macrocell2";
+    ATTRIBUTE Location OF \SPI_Slave:BSPIS:tx_load\ : LABEL IS "U(0,1)";
+    ATTRIBUTE lib_model OF \SPI_Slave:BSPIS:byte_complete\ : LABEL IS "macrocell3";
+    ATTRIBUTE Location OF \SPI_Slave:BSPIS:byte_complete\ : LABEL IS "U(1,0)";
+    ATTRIBUTE lib_model OF \SPI_Slave:BSPIS:rx_buf_overrun\ : LABEL IS "macrocell4";
+    ATTRIBUTE Location OF \SPI_Slave:BSPIS:rx_buf_overrun\ : LABEL IS "U(0,0)";
+    ATTRIBUTE lib_model OF Net_23 : LABEL IS "macrocell5";
+    ATTRIBUTE Location OF Net_23 : LABEL IS "U(0,0)";
+    ATTRIBUTE lib_model OF \SPI_Slave:BSPIS:mosi_buf_overrun\ : LABEL IS "macrocell6";
+    ATTRIBUTE Location OF \SPI_Slave:BSPIS:mosi_buf_overrun\ : LABEL IS "U(0,0)";
+    ATTRIBUTE lib_model OF \SPI_Slave:BSPIS:tx_status_0\ : LABEL IS "macrocell7";
+    ATTRIBUTE Location OF \SPI_Slave:BSPIS:tx_status_0\ : LABEL IS "U(1,0)";
+    ATTRIBUTE lib_model OF \SPI_Slave:BSPIS:rx_status_4\ : LABEL IS "macrocell8";
+    ATTRIBUTE Location OF \SPI_Slave:BSPIS:rx_status_4\ : LABEL IS "U(1,1)";
+    ATTRIBUTE lib_model OF \SPI_Slave:BSPIS:mosi_to_dp\ : LABEL IS "macrocell9";
     ATTRIBUTE Location OF \SPI_Slave:BSPIS:mosi_to_dp\ : LABEL IS "U(0,1)";
     ATTRIBUTE Location OF \UART_Putty:SCB\ : LABEL IS "F(SCB,1)";
-    ATTRIBUTE lib_model OF __ONE__ : LABEL IS "macrocell8";
-    ATTRIBUTE Location OF __ONE__ : LABEL IS "U(1,1)";
-    ATTRIBUTE Location OF \SPI_Slave:BSPIS:sync_1\ : LABEL IS "U(0,1)";
-    ATTRIBUTE Location OF \SPI_Slave:BSPIS:sync_2\ : LABEL IS "U(0,1)";
-    ATTRIBUTE Location OF \SPI_Slave:BSPIS:sync_3\ : LABEL IS "U(0,1)";
-    ATTRIBUTE Location OF \SPI_Slave:BSPIS:sync_4\ : LABEL IS "U(0,1)";
-    ATTRIBUTE Location OF \SPI_Slave:BSPIS:BitCounter\ : LABEL IS "U(0,0)";
+    ATTRIBUTE Location OF RX_isr : LABEL IS "[IntrContainer=(0)][IntrId=(0)]";
+    ATTRIBUTE Location OF \SPI_Slave:BSPIS:sync_1\ : LABEL IS "U(0,0)";
+    ATTRIBUTE Location OF \SPI_Slave:BSPIS:sync_2\ : LABEL IS "U(0,0)";
+    ATTRIBUTE Location OF \SPI_Slave:BSPIS:sync_3\ : LABEL IS "U(0,0)";
+    ATTRIBUTE Location OF \SPI_Slave:BSPIS:sync_4\ : LABEL IS "U(0,0)";
+    ATTRIBUTE Location OF \SPI_Slave:BSPIS:BitCounter\ : LABEL IS "U(0,1)";
     ATTRIBUTE lib_model OF \SPI_Slave:BSPIS:TxStsReg\ : LABEL IS "statusicell1";
-    ATTRIBUTE Location OF \SPI_Slave:BSPIS:TxStsReg\ : LABEL IS "U(1,1)";
+    ATTRIBUTE Location OF \SPI_Slave:BSPIS:TxStsReg\ : LABEL IS "U(1,0)";
     ATTRIBUTE lib_model OF \SPI_Slave:BSPIS:RxStsReg\ : LABEL IS "statusicell2";
-    ATTRIBUTE Location OF \SPI_Slave:BSPIS:RxStsReg\ : LABEL IS "U(1,0)";
+    ATTRIBUTE Location OF \SPI_Slave:BSPIS:RxStsReg\ : LABEL IS "U(1,1)";
     ATTRIBUTE lib_model OF \SPI_Slave:BSPIS:sR8:Dp:u0\ : LABEL IS "datapathcell1";
-    ATTRIBUTE Location OF \SPI_Slave:BSPIS:sR8:Dp:u0\ : LABEL IS "U(0,1)";
-    ATTRIBUTE lib_model OF \SPI_Slave:BSPIS:dpcounter_one_reg\ : LABEL IS "macrocell9";
-    ATTRIBUTE Location OF \SPI_Slave:BSPIS:dpcounter_one_reg\ : LABEL IS "U(1,1)";
-    ATTRIBUTE lib_model OF \SPI_Slave:BSPIS:mosi_buf_overrun_fin\ : LABEL IS "macrocell10";
-    ATTRIBUTE Location OF \SPI_Slave:BSPIS:mosi_buf_overrun_fin\ : LABEL IS "U(1,0)";
-    ATTRIBUTE lib_model OF \SPI_Slave:BSPIS:mosi_tmp\ : LABEL IS "macrocell11";
+    ATTRIBUTE Location OF \SPI_Slave:BSPIS:sR8:Dp:u0\ : LABEL IS "U(0,0)";
+    ATTRIBUTE Location OF \SPI_Slave:RxInternalInterrupt\ : LABEL IS "[IntrContainer=(0)][IntrId=(1)]";
+    ATTRIBUTE lib_model OF \SPI_Slave:BSPIS:dpcounter_one_reg\ : LABEL IS "macrocell10";
+    ATTRIBUTE Location OF \SPI_Slave:BSPIS:dpcounter_one_reg\ : LABEL IS "U(1,0)";
+    ATTRIBUTE lib_model OF \SPI_Slave:BSPIS:mosi_buf_overrun_fin\ : LABEL IS "macrocell11";
+    ATTRIBUTE Location OF \SPI_Slave:BSPIS:mosi_buf_overrun_fin\ : LABEL IS "U(0,0)";
+    ATTRIBUTE lib_model OF \SPI_Slave:BSPIS:mosi_tmp\ : LABEL IS "macrocell12";
     ATTRIBUTE Location OF \SPI_Slave:BSPIS:mosi_tmp\ : LABEL IS "U(0,1)";
     COMPONENT count7cell
         PORT (
@@ -252,6 +265,11 @@ ARCHITECTURE __DEFAULT__ OF SPI_Slave IS
             cmsbi : IN std_ulogic;
             cmsbo : OUT std_ulogic;
             busclk : IN std_ulogic);
+    END COMPONENT;
+    COMPONENT interrupt
+        PORT (
+            interrupt : IN std_ulogic;
+            clock : IN std_ulogic);
     END COMPONENT;
     COMPONENT iocell
         PORT (
@@ -506,7 +524,7 @@ BEGIN
 
     ClockGenBlock:m0s8clockgenblockcell
         PORT MAP(
-            gen_clk_out_0 => \SPI_Slave:Net_81_digital\,
+            gen_clk_out_0 => Net_52_digital,
             gen_clk_in_0 => dclk_to_genclk,
             gen_clk_in_1 => open,
             gen_clk_out_1 => open,
@@ -993,6 +1011,106 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
+    SS:logicalport
+        GENERIC MAP(
+            drive_mode => "001",
+            ibuf_enabled => "1",
+            id => "8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba",
+            init_dr_st => "0",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "0",
+            input_sync_mode => "0",
+            intr_mode => "00",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "I",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "0",
+            vtrip => "00",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    SS(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "SS",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => SS(0)__PA,
+            oe => open,
+            fb => Net_104,
+            pad_in => SS(0)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    \SPI_Slave:BSPIS:inv_ss\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => \SPI_Slave:BSPIS:inv_ss\,
+            main_0 => Net_104);
+
     \SPI_Slave:BSPIS:tx_load\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * !main_1 * !main_2 * main_3)",
@@ -1024,6 +1142,16 @@ BEGIN
             q => \SPI_Slave:BSPIS:rx_buf_overrun\,
             main_0 => \SPI_Slave:BSPIS:mosi_buf_overrun_reg\,
             main_1 => \SPI_Slave:BSPIS:mosi_buf_overrun_fin\);
+
+    Net_23:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_1)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_23,
+            main_0 => Net_104,
+            main_1 => \SPI_Slave:BSPIS:miso_from_dp\);
 
     \SPI_Slave:BSPIS:mosi_buf_overrun\:macrocell
         GENERIC MAP(
@@ -1097,20 +1225,20 @@ BEGIN
             tr_tx_req => Net_6,
             tr_rx_req => Net_5);
 
-    __ONE__:macrocell
+    RX_isr:interrupt
         GENERIC MAP(
-            eqn_main => "1'b0",
-            regmode => 0,
-            clken_mode => 1)
+            int_type => "10",
+            is_nmi => 0)
         PORT MAP(
-            q => __ONE__);
+            interrupt => Net_35,
+            clock => ClockBlock_HFClk);
 
     \SPI_Slave:BSPIS:sync_1\:synccell
         GENERIC MAP(
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            clock => \SPI_Slave:Net_81_digital\,
+            clock => Net_52_digital,
             in => \SPI_Slave:BSPIS:tx_load\,
             out => \SPI_Slave:BSPIS:dpcounter_one_fin\);
 
@@ -1119,7 +1247,7 @@ BEGIN
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            clock => \SPI_Slave:Net_81_digital\,
+            clock => Net_52_digital,
             in => \SPI_Slave:BSPIS:dpMISO_fifo_empty\,
             out => \SPI_Slave:BSPIS:miso_tx_empty_reg_fin\);
 
@@ -1128,7 +1256,7 @@ BEGIN
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            clock => \SPI_Slave:Net_81_digital\,
+            clock => Net_52_digital,
             in => \SPI_Slave:BSPIS:mosi_buf_overrun\,
             out => \SPI_Slave:BSPIS:mosi_buf_overrun_reg\);
 
@@ -1137,7 +1265,7 @@ BEGIN
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            clock => \SPI_Slave:Net_81_digital\,
+            clock => Net_52_digital,
             in => \SPI_Slave:BSPIS:dpMOSI_fifo_full\,
             out => \SPI_Slave:BSPIS:dpMOSI_fifo_full_reg\);
 
@@ -1149,11 +1277,13 @@ BEGIN
             cy_route_en => 1,
             cy_route_ld => 0,
             clk_inv => '1',
-            clken_mode => 1)
+            clken_mode => 1,
+            reset_inv => '0')
         PORT MAP(
             clock_n => Net_103,
+            reset => Net_104,
             load => open,
-            enable => open,
+            enable => \SPI_Slave:BSPIS:inv_ss\,
             count_6 => \SPI_Slave:BSPIS:count_6\,
             count_5 => \SPI_Slave:BSPIS:count_5\,
             count_4 => \SPI_Slave:BSPIS:count_4\,
@@ -1170,7 +1300,7 @@ BEGIN
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            clock => \SPI_Slave:Net_81_digital\,
+            clock => Net_52_digital,
             status_6 => \SPI_Slave:BSPIS:byte_complete\,
             status_5 => open,
             status_4 => open,
@@ -1187,14 +1317,15 @@ BEGIN
             clk_inv => '0',
             clken_mode => 1)
         PORT MAP(
-            clock => \SPI_Slave:Net_81_digital\,
+            clock => Net_52_digital,
             status_6 => \SPI_Slave:BSPIS:dpMOSI_fifo_full_reg\,
             status_5 => \SPI_Slave:BSPIS:rx_buf_overrun\,
             status_4 => \SPI_Slave:BSPIS:rx_status_4\,
             status_3 => \SPI_Slave:BSPIS:dpMOSI_fifo_not_empty\,
             status_2 => open,
             status_1 => open,
-            status_0 => open);
+            status_0 => open,
+            interrupt => Net_35);
 
     \SPI_Slave:BSPIS:sR8:Dp:u0\:datapathcell
         GENERIC MAP(
@@ -1225,16 +1356,24 @@ BEGIN
             clken_mode => 1)
         PORT MAP(
             clock => Net_103,
-            cs_addr_2 => __ONE__,
+            cs_addr_2 => \SPI_Slave:BSPIS:inv_ss\,
             cs_addr_0 => \SPI_Slave:BSPIS:tx_load\,
             route_si => \SPI_Slave:BSPIS:mosi_to_dp\,
             f1_load => \SPI_Slave:BSPIS:tx_load\,
-            so_comb => Net_23,
+            so_comb => \SPI_Slave:BSPIS:miso_from_dp\,
             f0_bus_stat_comb => \SPI_Slave:BSPIS:tx_status_1\,
             f0_blk_stat_comb => \SPI_Slave:BSPIS:dpMISO_fifo_empty\,
             f1_bus_stat_comb => \SPI_Slave:BSPIS:dpMOSI_fifo_not_empty\,
             f1_blk_stat_comb => \SPI_Slave:BSPIS:dpMOSI_fifo_full\,
             busclk => ClockBlock_HFClk);
+
+    \SPI_Slave:RxInternalInterrupt\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => Net_35,
+            clock => ClockBlock_HFClk);
 
     \SPI_Slave:BSPIS:dpcounter_one_reg\:macrocell
         GENERIC MAP(
@@ -1244,7 +1383,7 @@ BEGIN
             clken_mode => 1)
         PORT MAP(
             q => \SPI_Slave:BSPIS:dpcounter_one_reg\,
-            clock_0 => \SPI_Slave:Net_81_digital\,
+            clock_0 => Net_52_digital,
             main_0 => \SPI_Slave:BSPIS:dpcounter_one_fin\);
 
     \SPI_Slave:BSPIS:mosi_buf_overrun_fin\:macrocell
@@ -1255,7 +1394,7 @@ BEGIN
             clken_mode => 1)
         PORT MAP(
             q => \SPI_Slave:BSPIS:mosi_buf_overrun_fin\,
-            clock_0 => \SPI_Slave:Net_81_digital\,
+            clock_0 => Net_52_digital,
             main_0 => \SPI_Slave:BSPIS:mosi_buf_overrun_reg\);
 
     \SPI_Slave:BSPIS:mosi_tmp\:macrocell

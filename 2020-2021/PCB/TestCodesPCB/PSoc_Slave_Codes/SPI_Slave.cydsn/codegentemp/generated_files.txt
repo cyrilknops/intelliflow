@@ -38,6 +38,14 @@
   <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave.cydsn\codegentemp\MISO.h" value="HEADER;;;;;MISO" />
   <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave.cydsn\codegentemp\MISO_aliases.h" value="HEADER;;;;;MISO" />
   <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave.cydsn\codegentemp\MISO_PM.c" value="SOURCE_C;CortexM0;;;;MISO" />
+  <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave.cydsn\codegentemp\Clock.c" value="SOURCE_C;CortexM0;;;;Clock" />
+  <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave.cydsn\codegentemp\Clock.h" value="HEADER;;;;;Clock" />
+  <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave.cydsn\codegentemp\SS.c" value="SOURCE_C;CortexM0;;;;SS" />
+  <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave.cydsn\codegentemp\SS.h" value="HEADER;;;;;SS" />
+  <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave.cydsn\codegentemp\SS_aliases.h" value="HEADER;;;;;SS" />
+  <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave.cydsn\codegentemp\SS_PM.c" value="SOURCE_C;CortexM0;;;;SS" />
+  <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave.cydsn\codegentemp\RX_isr.c" value="SOURCE_C;CortexM0;;;;RX_isr" />
+  <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave.cydsn\codegentemp\RX_isr.h" value="HEADER;;;;;RX_isr" />
   <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave.cydsn\codegentemp\SPI_Slave.c" value="SOURCE_C;CortexM0;;;;SPI_Slave" />
   <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave.cydsn\codegentemp\SPI_Slave.h" value="HEADER;;;;;SPI_Slave" />
   <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave.cydsn\codegentemp\SPI_Slave_PM.c" value="SOURCE_C;CortexM0;;;;SPI_Slave" />
@@ -54,8 +62,6 @@
   <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave.cydsn\codegentemp\UART_Putty_rx.h" value="HEADER;;;;;UART_Putty_rx" />
   <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave.cydsn\codegentemp\UART_Putty_rx_aliases.h" value="HEADER;;;;;UART_Putty_rx" />
   <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave.cydsn\codegentemp\UART_Putty_rx_PM.c" value="SOURCE_C;CortexM0;;;;UART_Putty_rx" />
-  <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave.cydsn\codegentemp\SPI_Slave_IntClock.c" value="SOURCE_C;CortexM0;;;;SPI_Slave_IntClock" />
-  <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave.cydsn\codegentemp\SPI_Slave_IntClock.h" value="HEADER;;;;;SPI_Slave_IntClock" />
   <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave.cydsn\codegentemp\cy_em_eeprom.c" value="SOURCE_C;CortexM0;;;;Em_EEPROM_Dynamic" />
   <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave.cydsn\codegentemp\cy_em_eeprom.h" value="HEADER;;;;;Em_EEPROM_Dynamic" />
   <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave.cydsn\codegentemp\cm0gcc.ld" value="LINKER_SCRIPT;;;b98f980c-3bd1-4fc7-a887-c56a20a46fdd;;cy_boot" />
