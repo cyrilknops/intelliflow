@@ -228,6 +228,6 @@ Export/
 *.rpt
 *.svd
 *.log
-*.zip
+#*.zip
 
 # End of https://www.toptal.com/developers/gitignore/api/psoccreator
