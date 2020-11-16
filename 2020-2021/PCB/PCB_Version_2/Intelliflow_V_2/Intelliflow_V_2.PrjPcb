@@ -207,94 +207,6 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[GeneratedDocument1]
-DocumentPath=Project Outputs for Intelliflow_V_2\NC Drill\PCB_V_2_withgroundplane-RoundHoles.TXT
-DItemRevisionGUID=
-
-[GeneratedDocument2]
-DocumentPath=Project Outputs for Intelliflow_V_2\NC Drill\PCB_V_2_withgroundplane-SlotHoles.TXT
-DItemRevisionGUID=
-
-[GeneratedDocument3]
-DocumentPath=Project Outputs for Intelliflow_V_2\NC Drill\PCB_V_2_withgroundplane.DRR
-DItemRevisionGUID=
-
-[GeneratedDocument4]
-DocumentPath=Project Outputs for Intelliflow_V_2\GerberX2\PCB_V_2_withgroundplane.EXTREP
-DItemRevisionGUID=
-
-[GeneratedDocument5]
-DocumentPath=Project Outputs for Intelliflow_V_2\NC Drill\PCB_V_2_withgroundplane.LDP
-DItemRevisionGUID=
-
-[GeneratedDocument6]
-DocumentPath=Project Outputs for Intelliflow_V_2\GerberX2\PCB_V_2_withgroundplane.REP
-DItemRevisionGUID=
-
-[GeneratedDocument7]
-DocumentPath=Project Outputs for Intelliflow_V_2\GerberX2\PCB_V_2_withgroundplane.RUL
-DItemRevisionGUID=
-
-[GeneratedDocument8]
-DocumentPath=Project Outputs for Intelliflow_V_2\GerberX2\PCB_V_2_withgroundplane_Copper_Signal_Bot.gbr
-DItemRevisionGUID=
-
-[GeneratedDocument9]
-DocumentPath=Project Outputs for Intelliflow_V_2\GerberX2\PCB_V_2_withgroundplane_Copper_Signal_Top.gbr
-DItemRevisionGUID=
-
-[GeneratedDocument10]
-DocumentPath=Project Outputs for Intelliflow_V_2\GerberX2\PCB_V_2_withgroundplane_Keep-out.gbr
-DItemRevisionGUID=
-
-[GeneratedDocument11]
-DocumentPath=Project Outputs for Intelliflow_V_2\GerberX2\PCB_V_2_withgroundplane_Legend_Bot.gbr
-DItemRevisionGUID=
-
-[GeneratedDocument12]
-DocumentPath=Project Outputs for Intelliflow_V_2\GerberX2\PCB_V_2_withgroundplane_Legend_Top.gbr
-DItemRevisionGUID=
-
-[GeneratedDocument13]
-DocumentPath=Project Outputs for Intelliflow_V_2\GerberX2\PCB_V_2_withgroundplane_Mechanical_1.gbr
-DItemRevisionGUID=
-
-[GeneratedDocument14]
-DocumentPath=Project Outputs for Intelliflow_V_2\GerberX2\PCB_V_2_withgroundplane_Mechanical_13.gbr
-DItemRevisionGUID=
-
-[GeneratedDocument15]
-DocumentPath=Project Outputs for Intelliflow_V_2\GerberX2\PCB_V_2_withgroundplane_Mechanical_15.gbr
-DItemRevisionGUID=
-
-[GeneratedDocument16]
-DocumentPath=Project Outputs for Intelliflow_V_2\GerberX2\PCB_V_2_withgroundplane_Pads_Bot.gbr
-DItemRevisionGUID=
-
-[GeneratedDocument17]
-DocumentPath=Project Outputs for Intelliflow_V_2\GerberX2\PCB_V_2_withgroundplane_Pads_Top.gbr
-DItemRevisionGUID=
-
-[GeneratedDocument18]
-DocumentPath=Project Outputs for Intelliflow_V_2\GerberX2\PCB_V_2_withgroundplane_Paste_Bot.gbr
-DItemRevisionGUID=
-
-[GeneratedDocument19]
-DocumentPath=Project Outputs for Intelliflow_V_2\GerberX2\PCB_V_2_withgroundplane_Paste_Top.gbr
-DItemRevisionGUID=
-
-[GeneratedDocument20]
-DocumentPath=Project Outputs for Intelliflow_V_2\GerberX2\PCB_V_2_withgroundplane_Profile.gbr
-DItemRevisionGUID=
-
-[GeneratedDocument21]
-DocumentPath=Project Outputs for Intelliflow_V_2\GerberX2\PCB_V_2_withgroundplane_Soldermask_Bot.gbr
-DItemRevisionGUID=
-
-[GeneratedDocument22]
-DocumentPath=Project Outputs for Intelliflow_V_2\GerberX2\PCB_V_2_withgroundplane_Soldermask_Top.gbr
-DItemRevisionGUID=
-
 [Configuration1]
 Name=Sources
 ParameterCount=0
@@ -832,6 +744,36 @@ OutputName11=Specctra Design PCB
 OutputDocumentPath11=
 OutputVariantName11=
 OutputDefault11=0
+OutputType12=Ansoft Neutral
+OutputName12=Ansoft Neutral (AutoPCB)
+OutputDocumentPath12=
+OutputVariantName12=
+OutputDefault12=0
+OutputType13=HyperLynx
+OutputName13=HyperLynx (AutoPCB)
+OutputDocumentPath13=
+OutputVariantName13=
+OutputDefault13=0
+OutputType14=Orcad v7 Capture Design
+OutputName14=Orcad v7 Capture Design (AutoSCH)
+OutputDocumentPath14=
+OutputVariantName14=
+OutputDefault14=0
+OutputType15=P-CAD ASCII
+OutputName15=P-CAD ASCII (AutoPCB)
+OutputDocumentPath15=
+OutputVariantName15=
+OutputDefault15=0
+OutputType16=P-CAD V16 Schematic Design
+OutputName16=P-CAD V16 Schematic Design (AutoSCH)
+OutputDocumentPath16=
+OutputVariantName16=
+OutputDefault16=0
+OutputType17=SiSoft
+OutputName17=SiSoft (AutoPCB)
+OutputDocumentPath17=
+OutputVariantName17=
+OutputDefault17=0
 
 [OutputGroup10]
 Name=PostProcess Outputs
