@@ -121,11 +121,14 @@ int cmd_wifi(){
   read_line();
   if(!error_flag){
       Serial.println(line);
+      EEPROM.writeString(0, String(line));
       Serial.println("Type in the password");
   }
   read_line();
   if(!error_flag){
       Serial.println(line);
+      EEPROM.writeString(100, String(line));
+      EEPROM.commit();
       Serial.println("Connecting...");
   }
   
@@ -136,11 +139,14 @@ int cmd_mqtt(){
   read_line();
   if(!error_flag){
       Serial.println(line);
+      EEPROM.writeString(200, String(line));
       Serial.println("Enter the port of the broker");
   }
   read_line();
   if(!error_flag){
       Serial.println(line);
+      EEPROM.writeString(300, String(line));
+      EEPROM.commit();
       Serial.println("Connecting...");
   }
 }
