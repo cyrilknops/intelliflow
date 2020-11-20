@@ -1,6 +1,6 @@
 -- Project:   C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\I2C_slave.cydsn\I2C_slave.cyprj
--- Generated: 11/10/2020 14:53:14
--- PSoC Creator  4.2
+-- Generated: 11/20/2020 20:27:28
+-- PSoC Creator  4.4
 
 ENTITY I2C_slave IS
     PORT(

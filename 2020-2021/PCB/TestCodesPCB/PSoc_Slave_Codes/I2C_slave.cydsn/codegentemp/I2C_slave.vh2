@@ -2,7 +2,7 @@
 --	Conversion of I2C_slave.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Tue Nov 10 14:53:10 2020
+--	Fri Nov 20 20:27:26 2020
 --
 
 USE cypress.cypress.all;
@@ -49,16 +49,16 @@ SIGNAL \EZI2C:miso_s_wire\ : bit;
 SIGNAL Net_190 : bit;
 SIGNAL Net_189 : bit;
 SIGNAL \EZI2C:Net_1028\ : bit;
-SIGNAL Net_186 : bit;
 SIGNAL Net_195 : bit;
 SIGNAL Net_196 : bit;
 SIGNAL Net_197 : bit;
 SIGNAL Net_198 : bit;
 SIGNAL Net_199 : bit;
 SIGNAL Net_200 : bit;
+SIGNAL Net_186 : bit;
+SIGNAL Net_206 : bit;
 SIGNAL Net_201 : bit;
 SIGNAL Net_203 : bit;
-SIGNAL Net_206 : bit;
 SIGNAL \UART_Putty:Net_847\ : bit;
 SIGNAL \UART_Putty:select_s_wire\ : bit;
 SIGNAL \UART_Putty:rx_wire\ : bit;
@@ -96,16 +96,16 @@ SIGNAL Net_170 : bit;
 SIGNAL Net_155 : bit;
 SIGNAL Net_154 : bit;
 SIGNAL \UART_Putty:Net_1028\ : bit;
-SIGNAL Net_151 : bit;
 SIGNAL Net_160 : bit;
 SIGNAL Net_161 : bit;
 SIGNAL Net_162 : bit;
 SIGNAL Net_163 : bit;
 SIGNAL Net_164 : bit;
 SIGNAL Net_165 : bit;
+SIGNAL Net_151 : bit;
+SIGNAL Net_171 : bit;
 SIGNAL Net_166 : bit;
 SIGNAL Net_168 : bit;
-SIGNAL Net_171 : bit;
 BEGIN
 
 zero <=  ('0') ;

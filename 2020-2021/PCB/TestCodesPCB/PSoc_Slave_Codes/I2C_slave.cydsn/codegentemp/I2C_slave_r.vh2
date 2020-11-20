@@ -1,6 +1,6 @@
 -- Project:   I2C_slave
--- Generated: 11/10/2020 14:53:12
--- PSoC Creator  4.2
+-- Generated: 11/20/2020 20:27:27
+-- PSoC Creator  4.4
 
 ENTITY I2C_slave IS
     PORT(

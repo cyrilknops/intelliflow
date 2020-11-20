@@ -1,6 +1,6 @@
 -- Project:   UART_Slave
--- Generated: 11/10/2020 14:52:29
--- PSoC Creator  4.2
+-- Generated: 11/20/2020 20:27:09
+-- PSoC Creator  4.4
 
 ENTITY UART_Slave IS
     PORT(

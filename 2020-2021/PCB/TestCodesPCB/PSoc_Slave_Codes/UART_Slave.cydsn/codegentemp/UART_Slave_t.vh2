@@ -1,6 +1,6 @@
 -- Project:   C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\UART_Slave.cydsn\UART_Slave.cyprj
--- Generated: 11/10/2020 14:52:34
--- PSoC Creator  4.2
+-- Generated: 11/20/2020 20:27:11
+-- PSoC Creator  4.4
 
 ENTITY UART_Slave IS
     PORT(

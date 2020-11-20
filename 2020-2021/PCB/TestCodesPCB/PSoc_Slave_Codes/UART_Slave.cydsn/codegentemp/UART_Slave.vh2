@@ -2,7 +2,7 @@
 --	Conversion of UART_Slave.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Tue Nov 10 14:52:28 2020
+--	Fri Nov 20 20:27:08 2020
 --
 
 USE cypress.cypress.all;
@@ -51,16 +51,16 @@ SIGNAL Net_56 : bit;
 SIGNAL Net_41 : bit;
 SIGNAL Net_40 : bit;
 SIGNAL \UART_Putty:Net_1028\ : bit;
-SIGNAL Net_37 : bit;
 SIGNAL Net_46 : bit;
 SIGNAL Net_47 : bit;
 SIGNAL Net_48 : bit;
 SIGNAL Net_49 : bit;
 SIGNAL Net_50 : bit;
 SIGNAL Net_51 : bit;
+SIGNAL Net_37 : bit;
+SIGNAL Net_57 : bit;
 SIGNAL Net_52 : bit;
 SIGNAL Net_54 : bit;
-SIGNAL Net_57 : bit;
 SIGNAL Net_392 : bit;
 SIGNAL \UART_ESP:Net_9\ : bit;
 SIGNAL \UART_ESP:Net_61\ : bit;
