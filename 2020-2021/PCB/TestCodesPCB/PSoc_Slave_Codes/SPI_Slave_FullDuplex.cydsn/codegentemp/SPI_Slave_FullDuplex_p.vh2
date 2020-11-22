@@ -1,5 +1,5 @@
 -- Project:   SPI_Slave_FullDuplex
--- Generated: 11/20/2020 20:26:44
+-- Generated: 11/22/2020 20:49:33
 -- PSoC Creator  4.4
 
 ENTITY SPI_Slave_FullDuplex IS
@@ -1330,14 +1330,6 @@ BEGIN
             busclk => ClockBlock_HFClk);
 
     \SPI_Slave:RxInternalInterrupt\:interrupt
-        GENERIC MAP(
-            int_type => "10",
-            is_nmi => 0)
-        PORT MAP(
-            interrupt => Net_79,
-            clock => ClockBlock_HFClk);
-
-    RX_ISR:interrupt
         GENERIC MAP(
             int_type => "10",
             is_nmi => 0)

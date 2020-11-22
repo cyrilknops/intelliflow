@@ -1,6 +1,6 @@
 // ======================================================================
 // SPI_Slave_FullDuplex.v generated from TopDesign.cysch
-// 11/20/2020 at 20:26
+// 11/22/2020 at 20:49
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -892,7 +892,7 @@ module top ;
 		#(.id("99f5a6b3-f6b1-479c-84bc-62c73313af28"),
 		  .source_clock_id(""),
 		  .divisor(0),
-		  .period("83333333.3333333"),
+		  .period("666666666.666667"),
 		  .is_direct(0),
 		  .is_digital(1))
 		Clock
@@ -986,13 +986,6 @@ module top ;
         .tx_interrupt(Net_85));
     defparam SPI_Slave.NumberOfDataBits = 8;
     defparam SPI_Slave.ShiftDir = 0;
-
-
-	cy_isr_v1_0
-		#(.int_type(2'b10))
-		RX_ISR
-		 (.int_signal(Net_79));
-
 
 
 

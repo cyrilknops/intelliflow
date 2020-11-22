@@ -44,8 +44,8 @@
   <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave_HalfDuplex.cydsn\codegentemp\SPI_Slave_INT.c" value="SOURCE_C;CortexM0;;;;SPI_Slave" />
   <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave_HalfDuplex.cydsn\codegentemp\SPI_Slave_BOOT.c" value="SOURCE_C;CortexM0;;;;SPI_Slave" />
   <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave_HalfDuplex.cydsn\codegentemp\SPI_Slave_PVT.h" value="HEADER;;;;;SPI_Slave" />
-  <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave_HalfDuplex.cydsn\codegentemp\RX_interrupt.c" value="SOURCE_C;CortexM0;;;;RX_interrupt" />
-  <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave_HalfDuplex.cydsn\codegentemp\RX_interrupt.h" value="HEADER;;;;;RX_interrupt" />
+  <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave_HalfDuplex.cydsn\codegentemp\Clock.c" value="SOURCE_C;CortexM0;;;;Clock" />
+  <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave_HalfDuplex.cydsn\codegentemp\Clock.h" value="HEADER;;;;;Clock" />
   <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave_HalfDuplex.cydsn\codegentemp\UART_Putty_SCBCLK.c" value="SOURCE_C;CortexM0;;;;UART_Putty_SCBCLK" />
   <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave_HalfDuplex.cydsn\codegentemp\UART_Putty_SCBCLK.h" value="HEADER;;;;;UART_Putty_SCBCLK" />
   <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave_HalfDuplex.cydsn\codegentemp\UART_Putty_tx.c" value="SOURCE_C;CortexM0;;;;UART_Putty_tx" />
@@ -56,8 +56,6 @@
   <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave_HalfDuplex.cydsn\codegentemp\UART_Putty_rx.h" value="HEADER;;;;;UART_Putty_rx" />
   <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave_HalfDuplex.cydsn\codegentemp\UART_Putty_rx_aliases.h" value="HEADER;;;;;UART_Putty_rx" />
   <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave_HalfDuplex.cydsn\codegentemp\UART_Putty_rx_PM.c" value="SOURCE_C;CortexM0;;;;UART_Putty_rx" />
-  <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave_HalfDuplex.cydsn\codegentemp\SPI_Slave_IntClock.c" value="SOURCE_C;CortexM0;;;;SPI_Slave_IntClock" />
-  <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave_HalfDuplex.cydsn\codegentemp\SPI_Slave_IntClock.h" value="HEADER;;;;;SPI_Slave_IntClock" />
   <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave_HalfDuplex.cydsn\codegentemp\cy_em_eeprom.c" value="SOURCE_C;CortexM0;;;;Em_EEPROM_Dynamic" />
   <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave_HalfDuplex.cydsn\codegentemp\cy_em_eeprom.h" value="HEADER;;;;;Em_EEPROM_Dynamic" />
   <file name="C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave_HalfDuplex.cydsn\codegentemp\cm0gcc.ld" value="LINKER_SCRIPT;;;b98f980c-3bd1-4fc7-a887-c56a20a46fdd;;cy_boot" />

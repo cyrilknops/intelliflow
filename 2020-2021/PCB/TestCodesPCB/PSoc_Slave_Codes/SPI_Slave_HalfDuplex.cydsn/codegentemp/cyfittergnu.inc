@@ -186,6 +186,13 @@
 .set SCLK__PS, CYREG_PRT0_PS
 .set SCLK__SHIFT, 6
 
+/* Clock */
+.set Clock__DIVIDER_MASK, 0x0000FFFF
+.set Clock__ENABLE, CYREG_CLK_DIVIDER_A00
+.set Clock__ENABLE_MASK, 0x80000000
+.set Clock__MASK, 0x80000000
+.set Clock__REGISTER, CYREG_CLK_DIVIDER_A00
+
 /* SPI_Slave */
 .set SPI_Slave_BSPIS_BitCounter__16BIT_CONTROL_AUX_CTL_REG, CYREG_UDB_W16_ACTL_02
 .set SPI_Slave_BSPIS_BitCounter__16BIT_CONTROL_CONTROL_REG, CYREG_UDB_W16_CTL_02
@@ -274,22 +281,17 @@
 .set SPI_Slave_BSPIS_TxStsReg__MASK_REG, CYREG_UDB_W8_MSK_00
 .set SPI_Slave_BSPIS_TxStsReg__STATUS_AUX_CTL_REG, CYREG_UDB_W8_ACTL_00
 .set SPI_Slave_BSPIS_TxStsReg__STATUS_REG, CYREG_UDB_W8_ST_00
-.set SPI_Slave_IntClock__DIVIDER_MASK, 0x0000FFFF
-.set SPI_Slave_IntClock__ENABLE, CYREG_CLK_DIVIDER_A00
-.set SPI_Slave_IntClock__ENABLE_MASK, 0x80000000
-.set SPI_Slave_IntClock__MASK, 0x80000000
-.set SPI_Slave_IntClock__REGISTER, CYREG_CLK_DIVIDER_A00
 .set SPI_Slave_RxInternalInterrupt__INTC_CLR_EN_REG, CYREG_CM0_ICER
 .set SPI_Slave_RxInternalInterrupt__INTC_CLR_PD_REG, CYREG_CM0_ICPR
-.set SPI_Slave_RxInternalInterrupt__INTC_MASK, 0x02
-.set SPI_Slave_RxInternalInterrupt__INTC_NUMBER, 1
-.set SPI_Slave_RxInternalInterrupt__INTC_PRIOR_MASK, 0xC000
+.set SPI_Slave_RxInternalInterrupt__INTC_MASK, 0x01
+.set SPI_Slave_RxInternalInterrupt__INTC_NUMBER, 0
+.set SPI_Slave_RxInternalInterrupt__INTC_PRIOR_MASK, 0xC0
 .set SPI_Slave_RxInternalInterrupt__INTC_PRIOR_NUM, 3
 .set SPI_Slave_RxInternalInterrupt__INTC_PRIOR_REG, CYREG_CM0_IPR0
 .set SPI_Slave_RxInternalInterrupt__INTC_SET_EN_REG, CYREG_CM0_ISER
 .set SPI_Slave_RxInternalInterrupt__INTC_SET_PD_REG, CYREG_CM0_ISPR
 
-/* UART_Putty */
+/* UART_Putty_rx */
 .set UART_Putty_rx__0__DM__MASK, 0x7000
 .set UART_Putty_rx__0__DM__SHIFT, 12
 .set UART_Putty_rx__0__DR, CYREG_PRT0_DR
@@ -350,6 +352,8 @@
 .set UART_Putty_rx__PORT, 0
 .set UART_Putty_rx__PS, CYREG_PRT0_PS
 .set UART_Putty_rx__SHIFT, 4
+
+/* UART_Putty_SCB */
 .set UART_Putty_SCB__BIST_CONTROL, CYREG_SCB1_BIST_CONTROL
 .set UART_Putty_SCB__BIST_DATA, CYREG_SCB1_BIST_DATA
 .set UART_Putty_SCB__CTRL, CYREG_SCB1_CTRL
@@ -434,11 +438,15 @@
 .set UART_Putty_SCB__UART_RX_CTRL, CYREG_SCB1_UART_RX_CTRL
 .set UART_Putty_SCB__UART_RX_STATUS, CYREG_SCB1_UART_RX_STATUS
 .set UART_Putty_SCB__UART_TX_CTRL, CYREG_SCB1_UART_TX_CTRL
+
+/* UART_Putty_SCBCLK */
 .set UART_Putty_SCBCLK__DIVIDER_MASK, 0x0000FFFF
 .set UART_Putty_SCBCLK__ENABLE, CYREG_CLK_DIVIDER_B00
 .set UART_Putty_SCBCLK__ENABLE_MASK, 0x80000000
 .set UART_Putty_SCBCLK__MASK, 0x80000000
 .set UART_Putty_SCBCLK__REGISTER, CYREG_CLK_DIVIDER_B00
+
+/* Miscellaneous */
 .set UART_Putty_tx__0__DM__MASK, 0x38000
 .set UART_Putty_tx__0__DM__SHIFT, 15
 .set UART_Putty_tx__0__DR, CYREG_PRT0_DR
@@ -502,25 +510,12 @@
 .set UART_Putty_tx__PORT, 0
 .set UART_Putty_tx__PS, CYREG_PRT0_PS
 .set UART_Putty_tx__SHIFT, 5
-
-/* RX_interrupt */
-.set RX_interrupt__INTC_CLR_EN_REG, CYREG_CM0_ICER
-.set RX_interrupt__INTC_CLR_PD_REG, CYREG_CM0_ICPR
-.set RX_interrupt__INTC_MASK, 0x01
-.set RX_interrupt__INTC_NUMBER, 0
-.set RX_interrupt__INTC_PRIOR_MASK, 0xC0
-.set RX_interrupt__INTC_PRIOR_NUM, 3
-.set RX_interrupt__INTC_PRIOR_REG, CYREG_CM0_IPR0
-.set RX_interrupt__INTC_SET_EN_REG, CYREG_CM0_ISER
-.set RX_interrupt__INTC_SET_PD_REG, CYREG_CM0_ISPR
-
-/* Miscellaneous */
-.set CYDEV_BCLK__HFCLK__HZ, 24000000
-.set CYDEV_BCLK__HFCLK__KHZ, 24000
-.set CYDEV_BCLK__HFCLK__MHZ, 24
-.set CYDEV_BCLK__SYSCLK__HZ, 24000000
-.set CYDEV_BCLK__SYSCLK__KHZ, 24000
-.set CYDEV_BCLK__SYSCLK__MHZ, 24
+.set CYDEV_BCLK__HFCLK__HZ, 48000000
+.set CYDEV_BCLK__HFCLK__KHZ, 48000
+.set CYDEV_BCLK__HFCLK__MHZ, 48
+.set CYDEV_BCLK__SYSCLK__HZ, 48000000
+.set CYDEV_BCLK__SYSCLK__KHZ, 48000
+.set CYDEV_BCLK__SYSCLK__MHZ, 48
 .set CYDEV_CHIP_DIE_LEOPARD, 1
 .set CYDEV_CHIP_DIE_PSOC4A, 26
 .set CYDEV_CHIP_DIE_PSOC5LP, 2

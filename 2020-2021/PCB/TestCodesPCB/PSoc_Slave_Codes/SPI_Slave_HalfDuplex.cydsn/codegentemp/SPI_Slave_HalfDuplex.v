@@ -1,6 +1,6 @@
 // ======================================================================
 // SPI_Slave_HalfDuplex.v generated from TopDesign.cysch
-// 11/20/2020 at 20:42
+// 11/22/2020 at 20:42
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -534,7 +534,7 @@ endmodule
 `include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\not_v1_0\not_v1_0.v"
 `endif
 
-// SPI_Slave_v2_70(BidirectMode=true, ClockInternal=true, ControlFileName=SPI_Slave_Default.ctl, CtlModeReplacementString=SyncCtl, CyGetRegReplacementString=CY_GET_REG8, CyGetRegReplacementString_1=CY_GET_REG8, CyGetRegReplacementString_2=CY_GET_REG8, CySetRegReplacementString=CY_SET_REG8, DesiredBitRate=1000000, FixedPlacementEnabled=false, InternalInterruptEnabled=0, InternalRxInterruptEnabled=1, InternalTxInterruptEnabled=0, InterruptOnByteComplete=false, InterruptOnDone=false, InterruptOnRXEmpty=false, InterruptOnRXFull=false, InterruptOnRXNotEmpty=true, InterruptOnRXOverrun=false, InterruptOnTXEmpty=false, InterruptOnTXFull=false, InterruptOnTXNotFull=false, IntOnByteComp=0, IntOnRXEmpty=0, IntOnRXFull=0, IntOnRXNotEmpty=1, IntOnRXOver=0, IntOnSPIDone=0, IntOnTXEmpty=0, IntOnTXFull=0, IntOnTXNotFull=0, Mode=0, ModeUseZero=1, MultiSlaveEnable=false, NumberOfDataBits=8, PSoC3_ES2_PSoC5_ES1=false, RegDefReplacementString=reg8, RegSizeReplacementString=uint8, RxBufferSize=4, ShiftDir=0, SiliconRevisionReplacementString=es3, TxBufferSize=4, UseInternalInterrupt=false, UseRxInternalInterrupt=true, UseTxInternalInterrupt=false, VerilogSectionReplacementString=sR8, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=SPI_Slave_v2_70, CY_CONFIG_TITLE=SPI_Slave, CY_CONST_CONFIG=true, CY_CONTROL_FILE=SPI_Slave_Default.ctl, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=SPI_Slave, CY_INSTANCE_SHORT_NAME=SPI_Slave, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=70, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=SPI_Slave, )
+// SPI_Slave_v2_70(BidirectMode=true, ClockInternal=false, ControlFileName=SPI_Slave_Default.ctl, CtlModeReplacementString=SyncCtl, CyGetRegReplacementString=CY_GET_REG8, CyGetRegReplacementString_1=CY_GET_REG8, CyGetRegReplacementString_2=CY_GET_REG8, CySetRegReplacementString=CY_SET_REG8, DesiredBitRate=1000000, FixedPlacementEnabled=false, InternalInterruptEnabled=0, InternalRxInterruptEnabled=1, InternalTxInterruptEnabled=0, InterruptOnByteComplete=false, InterruptOnDone=false, InterruptOnRXEmpty=false, InterruptOnRXFull=false, InterruptOnRXNotEmpty=false, InterruptOnRXOverrun=false, InterruptOnTXEmpty=false, InterruptOnTXFull=false, InterruptOnTXNotFull=false, IntOnByteComp=0, IntOnRXEmpty=0, IntOnRXFull=0, IntOnRXNotEmpty=0, IntOnRXOver=0, IntOnSPIDone=0, IntOnTXEmpty=0, IntOnTXFull=0, IntOnTXNotFull=0, Mode=0, ModeUseZero=1, MultiSlaveEnable=false, NumberOfDataBits=8, PSoC3_ES2_PSoC5_ES1=false, RegDefReplacementString=reg8, RegSizeReplacementString=uint8, RxBufferSize=4, ShiftDir=0, SiliconRevisionReplacementString=es3, TxBufferSize=4, UseInternalInterrupt=false, UseRxInternalInterrupt=true, UseTxInternalInterrupt=false, VerilogSectionReplacementString=sR8, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=SPI_Slave_v2_70, CY_CONFIG_TITLE=SPI_Slave, CY_CONST_CONFIG=true, CY_CONTROL_FILE=SPI_Slave_Default.ctl, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=SPI_Slave, CY_INSTANCE_SHORT_NAME=SPI_Slave, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=70, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=SPI_Slave, )
 module SPI_Slave_v2_70_1 (
     clock,
     miso,
@@ -605,19 +605,7 @@ module SPI_Slave_v2_70_1 (
 	assign Net_75 = Net_169;
 
 	// VirtualMux_2 (cy_virtualmux_v1_0)
-	assign Net_81 = Net_176;
-
-
-	cy_clock_v1_0
-		#(.id("1e3bf755-78da-4f13-af39-d71aae1737bd/426fcbe0-714d-4404-8fa8-581ff40c30f1"),
-		  .source_clock_id(""),
-		  .divisor(0),
-		  .period("500000000"),
-		  .is_direct(0),
-		  .is_digital(1))
-		IntClock
-		 (.clock_out(Net_176));
-
+	assign Net_81 = clock;
 
 
     assign miso_oe = ~ss;
@@ -629,13 +617,13 @@ endmodule
 // top
 module top ;
 
+          wire  Net_97;
           wire  Net_94;
           wire  Net_93;
           wire  Net_92;
           wire  Net_91;
           wire  Net_90;
           wire  Net_89;
-          wire  Net_88;
           wire  Net_71;
           wire  Net_70;
           wire  Net_69;
@@ -658,6 +646,7 @@ module top ;
           wire  Net_52;
           wire  Net_51;
           wire  Net_50;
+          wire  Net_88;
           wire  Net_87;
           wire  Net_16;
           wire  Net_95;
@@ -909,7 +898,7 @@ module top ;
 	assign tmpOE__SS_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
     SPI_Slave_v2_70_1 SPI_Slave (
-        .clock(1'b0),
+        .clock(Net_88),
         .miso(Net_89),
         .miso_oe(Net_90),
         .mosi(1'b1),
@@ -923,10 +912,15 @@ module top ;
     defparam SPI_Slave.ShiftDir = 0;
 
 
-	cy_isr_v1_0
-		#(.int_type(2'b10))
-		RX_interrupt
-		 (.int_signal(Net_93));
+	cy_clock_v1_0
+		#(.id("c4051aff-6df8-4ddd-849c-2634ebe57a24"),
+		  .source_clock_id(""),
+		  .divisor(0),
+		  .period("666666666.666667"),
+		  .is_direct(0),
+		  .is_digital(1))
+		Clock
+		 (.clock_out(Net_88));
 
 
 

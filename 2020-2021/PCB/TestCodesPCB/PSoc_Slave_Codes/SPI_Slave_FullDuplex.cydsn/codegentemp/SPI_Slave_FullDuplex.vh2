@@ -2,7 +2,7 @@
 --	Conversion of SPI_Slave_FullDuplex.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Fri Nov 20 20:26:44 2020
+--	Sun Nov 22 20:49:33 2020
 --
 
 USE cypress.cypress.all;
@@ -622,7 +622,7 @@ Clock:cy_clock_v1_0
 		id=>"99f5a6b3-f6b1-479c-84bc-62c73313af28",
 		source_clock_id=>"",
 		divisor=>0,
-		period=>"83333333.3333333",
+		period=>"666666666.666667",
 		is_direct=>'0',
 		is_digital=>'1')
 	PORT MAP(clock_out=>Net_52,
@@ -846,10 +846,6 @@ SS:cy_psoc3_pins_v1_10
 			zero, zero, zero, zero),
 		po=>open);
 \SPI_Slave:RxInternalInterrupt\:cy_isr_v1_0
-	GENERIC MAP(int_type=>"10",
-		is_nmi=>'0')
-	PORT MAP(int_signal=>Net_79);
-RX_ISR:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10",
 		is_nmi=>'0')
 	PORT MAP(int_signal=>Net_79);

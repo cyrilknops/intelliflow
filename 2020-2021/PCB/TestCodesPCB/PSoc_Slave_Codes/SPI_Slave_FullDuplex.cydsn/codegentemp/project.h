@@ -35,7 +35,6 @@
 #include "SS_aliases.h"
 #include "SPI_Slave.h"
 #include "SPI_Slave_PVT.h"
-#include "RX_ISR.h"
 #include "UART_Putty_SCBCLK.h"
 #include "UART_Putty_tx.h"
 #include "UART_Putty_tx_aliases.h"

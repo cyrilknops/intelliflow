@@ -31,16 +31,17 @@
 #include "project.h"
 #include <stdlib.h>
 
-int8 recieve;
+uint32 recieve;
 int8 print;
-char string[1];
+char string[5];
 
 const char8 send[] = "PSOC4!";
-
 int flagSPI = 0;
 
 uint8 countTx = 0;
 uint8 countRx = 0;
+
+uint8 count = 0;
 
 int main()
 {
@@ -51,27 +52,30 @@ int main()
    
     for(;;)
     {
-       if(SS_Read() == 0)
-       {
             SPI_Slave_WriteTxData(send[countTx]);
-            countTx++;
+            countTx++;           
                     
             if(countTx == 6)
             {            
                 countTx = 0;
             }
            
-            recieve = SPI_Slave_ReadRxData();
+            recieve = SPI_Slave_ReadByte();
+            string[count] = recieve;
             
-            if(recieve)
+            if(string[0] == 'E')
             {
-            itoa(recieve,string, 10);
+            count++;
+            }
+            
+            if(count == 6)
+            {
             UART_Putty_UartPutString(string);
             UART_Putty_UartPutCRLF(0);
-            }  
-            
-            CyDelay(500);        
-        }      
+            count = 0;
+            }
+          
+            CyDelay(100);            
     }
     
 }

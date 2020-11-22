@@ -1,19 +1,19 @@
 dont_use_io iocell 3 2
 dont_use_io iocell 3 3
-set_location "\SPI_Slave:BSPIS:inv_ss\" macrocell 0 1 1 1
+set_location "\SPI_Slave:BSPIS:inv_ss\" macrocell 0 1 0 2
 set_location "\SPI_Slave:BSPIS:dpcounter_one_reg\" macrocell 1 0 0 1
 set_location "Net_23" macrocell 0 0 0 2
-set_location "\SPI_Slave:BSPIS:rx_status_4\" macrocell 1 1 0 0
-set_location "\SPI_Slave:BSPIS:RxStsReg\" statusicell 1 1 4 
-set_location "\SPI_Slave:BSPIS:mosi_tmp\" macrocell 0 1 1 0
-set_location "\SPI_Slave:BSPIS:mosi_buf_overrun\" macrocell 0 0 0 3
+set_location "\SPI_Slave:BSPIS:rx_status_4\" macrocell 0 1 0 3
+set_location "\SPI_Slave:BSPIS:mosi_tmp\" macrocell 0 1 0 1
+set_location "\SPI_Slave:BSPIS:mosi_buf_overrun\" macrocell 0 1 1 3
 set_location "\SPI_Slave:BSPIS:mosi_buf_overrun_fin\" macrocell 0 0 0 1
-set_location "\SPI_Slave:BSPIS:tx_load\" macrocell 0 1 1 3
+set_location "\SPI_Slave:BSPIS:tx_load\" macrocell 0 0 1 3
 set_location "\SPI_Slave:BSPIS:tx_status_0\" macrocell 1 0 0 0
 set_location "\SPI_Slave:BSPIS:TxStsReg\" statusicell 1 0 4 
 set_location "\SPI_Slave:BSPIS:BitCounter\" count7cell 0 1 7 
 set_location "\SPI_Slave:BSPIS:mosi_to_dp\" macrocell 0 1 0 0
 set_location "\SPI_Slave:BSPIS:byte_complete\" macrocell 1 0 0 2
+set_location "\SPI_Slave:BSPIS:RxStsReg\" statusicell 1 1 4 
 set_location "\SPI_Slave:BSPIS:rx_buf_overrun\" macrocell 0 0 0 0
 set_location "\SPI_Slave:BSPIS:sR8:Dp:u0\" datapathcell 0 0 2 
 set_location "\SPI_Slave:BSPIS:sync_3\" synccell 0 0 5 0
@@ -24,8 +24,7 @@ set_location "\SPI_Slave:BSPIS:sync_1\" synccell 0 0 5 2
 set_io "SCLK(0)" iocell 0 6
 set_io "MOSI(0)" iocell 3 0
 set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
-set_location "\SPI_Slave:RxInternalInterrupt\" interrupt -1 -1 1
-set_location "RX_ISR" interrupt -1 -1 0
+set_location "\SPI_Slave:RxInternalInterrupt\" interrupt -1 -1 0
 set_io "SS(0)" iocell 3 5
 set_location "\UART_Putty:SCB\" m0s8scbcell -1 -1 1
 set_location "ClockBlock" m0s8clockblockcell -1 -1 0

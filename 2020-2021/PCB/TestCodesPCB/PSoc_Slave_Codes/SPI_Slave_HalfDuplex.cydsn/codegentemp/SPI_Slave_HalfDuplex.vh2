@@ -2,7 +2,7 @@
 --	Conversion of SPI_Slave_HalfDuplex.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Fri Nov 20 20:42:35 2020
+--	Sun Nov 22 20:42:22 2020
 --
 
 USE cypress.cypress.all;
@@ -198,7 +198,7 @@ SIGNAL \SPI_Slave:BSPIS:sR8:Dp:f1_blk_stat_reg\ : bit;
 ATTRIBUTE port_state_att of \SPI_Slave:BSPIS:sR8:Dp:f1_blk_stat_reg\:SIGNAL IS 2;
 SIGNAL \SPI_Slave:tmpOE__bufoe_1_net_0\ : bit;
 SIGNAL \SPI_Slave:Net_169\ : bit;
-SIGNAL \SPI_Slave:Net_176\ : bit;
+SIGNAL Net_88 : bit;
 SIGNAL Net_90 : bit;
 SIGNAL \SPI_Slave:BSPIS:dpcounter_one_reg\\D\ : bit;
 SIGNAL \SPI_Slave:BSPIS:mosi_buf_overrun_fin\\D\ : bit;
@@ -616,7 +616,7 @@ SS:cy_psoc3_pins_v1_10
 		interrupt=>tmpINTERRUPT_0__SS_net_0);
 \SPI_Slave:BSPIS:ClkEn\:cy_psoc3_udb_clock_enable_v1_0
 	GENERIC MAP(sync_mode=>'1')
-	PORT MAP(clock_in=>\SPI_Slave:Net_81\,
+	PORT MAP(clock_in=>Net_88,
 		enable=>tmpOE__SCLK_net_0,
 		clock_out=>\SPI_Slave:BSPIS:clock_fin\);
 \SPI_Slave:BSPIS:PrcClkEn\:cy_psoc3_udb_clock_enable_v1_0
@@ -781,20 +781,16 @@ SS:cy_psoc3_pins_v1_10
 		oe=>\SPI_Slave:Net_182\,
 		y=>Net_16,
 		yfb=>\SPI_Slave:Net_75\);
-\SPI_Slave:IntClock\:cy_clock_v1_0
+Clock:cy_clock_v1_0
 	GENERIC MAP(cy_registers=>"",
-		id=>"1e3bf755-78da-4f13-af39-d71aae1737bd/426fcbe0-714d-4404-8fa8-581ff40c30f1",
+		id=>"c4051aff-6df8-4ddd-849c-2634ebe57a24",
 		source_clock_id=>"",
 		divisor=>0,
-		period=>"500000000",
+		period=>"666666666.666667",
 		is_direct=>'0',
 		is_digital=>'1')
-	PORT MAP(clock_out=>\SPI_Slave:Net_81\,
+	PORT MAP(clock_out=>Net_88,
 		dig_domain_out=>open);
-RX_interrupt:cy_isr_v1_0
-	GENERIC MAP(int_type=>"10",
-		is_nmi=>'0')
-	PORT MAP(int_signal=>Net_93);
 \SPI_Slave:BSPIS:dpcounter_one_reg\:cy_dff
 	PORT MAP(d=>\SPI_Slave:BSPIS:dpcounter_one_fin\,
 		clk=>\SPI_Slave:BSPIS:clock_fin\,

@@ -186,6 +186,13 @@
 #define SCLK__PS CYREG_PRT0_PS
 #define SCLK__SHIFT 6u
 
+/* Clock */
+#define Clock__DIVIDER_MASK 0x0000FFFFu
+#define Clock__ENABLE CYREG_CLK_DIVIDER_A00
+#define Clock__ENABLE_MASK 0x80000000u
+#define Clock__MASK 0x80000000u
+#define Clock__REGISTER CYREG_CLK_DIVIDER_A00
+
 /* SPI_Slave */
 #define SPI_Slave_BSPIS_BitCounter__16BIT_CONTROL_AUX_CTL_REG CYREG_UDB_W16_ACTL_02
 #define SPI_Slave_BSPIS_BitCounter__16BIT_CONTROL_CONTROL_REG CYREG_UDB_W16_CTL_02
@@ -274,22 +281,17 @@
 #define SPI_Slave_BSPIS_TxStsReg__MASK_REG CYREG_UDB_W8_MSK_00
 #define SPI_Slave_BSPIS_TxStsReg__STATUS_AUX_CTL_REG CYREG_UDB_W8_ACTL_00
 #define SPI_Slave_BSPIS_TxStsReg__STATUS_REG CYREG_UDB_W8_ST_00
-#define SPI_Slave_IntClock__DIVIDER_MASK 0x0000FFFFu
-#define SPI_Slave_IntClock__ENABLE CYREG_CLK_DIVIDER_A00
-#define SPI_Slave_IntClock__ENABLE_MASK 0x80000000u
-#define SPI_Slave_IntClock__MASK 0x80000000u
-#define SPI_Slave_IntClock__REGISTER CYREG_CLK_DIVIDER_A00
 #define SPI_Slave_RxInternalInterrupt__INTC_CLR_EN_REG CYREG_CM0_ICER
 #define SPI_Slave_RxInternalInterrupt__INTC_CLR_PD_REG CYREG_CM0_ICPR
-#define SPI_Slave_RxInternalInterrupt__INTC_MASK 0x02u
-#define SPI_Slave_RxInternalInterrupt__INTC_NUMBER 1u
-#define SPI_Slave_RxInternalInterrupt__INTC_PRIOR_MASK 0xC000u
+#define SPI_Slave_RxInternalInterrupt__INTC_MASK 0x01u
+#define SPI_Slave_RxInternalInterrupt__INTC_NUMBER 0u
+#define SPI_Slave_RxInternalInterrupt__INTC_PRIOR_MASK 0xC0u
 #define SPI_Slave_RxInternalInterrupt__INTC_PRIOR_NUM 3u
 #define SPI_Slave_RxInternalInterrupt__INTC_PRIOR_REG CYREG_CM0_IPR0
 #define SPI_Slave_RxInternalInterrupt__INTC_SET_EN_REG CYREG_CM0_ISER
 #define SPI_Slave_RxInternalInterrupt__INTC_SET_PD_REG CYREG_CM0_ISPR
 
-/* UART_Putty */
+/* UART_Putty_rx */
 #define UART_Putty_rx__0__DM__MASK 0x7000u
 #define UART_Putty_rx__0__DM__SHIFT 12u
 #define UART_Putty_rx__0__DR CYREG_PRT0_DR
@@ -350,6 +352,8 @@
 #define UART_Putty_rx__PORT 0u
 #define UART_Putty_rx__PS CYREG_PRT0_PS
 #define UART_Putty_rx__SHIFT 4u
+
+/* UART_Putty_SCB */
 #define UART_Putty_SCB__BIST_CONTROL CYREG_SCB1_BIST_CONTROL
 #define UART_Putty_SCB__BIST_DATA CYREG_SCB1_BIST_DATA
 #define UART_Putty_SCB__CTRL CYREG_SCB1_CTRL
@@ -434,11 +438,15 @@
 #define UART_Putty_SCB__UART_RX_CTRL CYREG_SCB1_UART_RX_CTRL
 #define UART_Putty_SCB__UART_RX_STATUS CYREG_SCB1_UART_RX_STATUS
 #define UART_Putty_SCB__UART_TX_CTRL CYREG_SCB1_UART_TX_CTRL
+
+/* UART_Putty_SCBCLK */
 #define UART_Putty_SCBCLK__DIVIDER_MASK 0x0000FFFFu
 #define UART_Putty_SCBCLK__ENABLE CYREG_CLK_DIVIDER_B00
 #define UART_Putty_SCBCLK__ENABLE_MASK 0x80000000u
 #define UART_Putty_SCBCLK__MASK 0x80000000u
 #define UART_Putty_SCBCLK__REGISTER CYREG_CLK_DIVIDER_B00
+
+/* Miscellaneous */
 #define UART_Putty_tx__0__DM__MASK 0x38000u
 #define UART_Putty_tx__0__DM__SHIFT 15u
 #define UART_Putty_tx__0__DR CYREG_PRT0_DR
@@ -502,28 +510,15 @@
 #define UART_Putty_tx__PORT 0u
 #define UART_Putty_tx__PS CYREG_PRT0_PS
 #define UART_Putty_tx__SHIFT 5u
-
-/* RX_interrupt */
-#define RX_interrupt__INTC_CLR_EN_REG CYREG_CM0_ICER
-#define RX_interrupt__INTC_CLR_PD_REG CYREG_CM0_ICPR
-#define RX_interrupt__INTC_MASK 0x01u
-#define RX_interrupt__INTC_NUMBER 0u
-#define RX_interrupt__INTC_PRIOR_MASK 0xC0u
-#define RX_interrupt__INTC_PRIOR_NUM 3u
-#define RX_interrupt__INTC_PRIOR_REG CYREG_CM0_IPR0
-#define RX_interrupt__INTC_SET_EN_REG CYREG_CM0_ISER
-#define RX_interrupt__INTC_SET_PD_REG CYREG_CM0_ISPR
-
-/* Miscellaneous */
 #define CY_PROJECT_NAME "SPI_Slave_HalfDuplex"
 #define CY_VERSION "PSoC Creator  4.4"
 #define CYDEV_BANDGAP_VOLTAGE 1.024
-#define CYDEV_BCLK__HFCLK__HZ 24000000U
-#define CYDEV_BCLK__HFCLK__KHZ 24000U
-#define CYDEV_BCLK__HFCLK__MHZ 24U
-#define CYDEV_BCLK__SYSCLK__HZ 24000000U
-#define CYDEV_BCLK__SYSCLK__KHZ 24000U
-#define CYDEV_BCLK__SYSCLK__MHZ 24U
+#define CYDEV_BCLK__HFCLK__HZ 48000000U
+#define CYDEV_BCLK__HFCLK__KHZ 48000U
+#define CYDEV_BCLK__HFCLK__MHZ 48U
+#define CYDEV_BCLK__SYSCLK__HZ 48000000U
+#define CYDEV_BCLK__SYSCLK__KHZ 48000U
+#define CYDEV_BCLK__SYSCLK__MHZ 48U
 #define CYDEV_CHIP_DIE_LEOPARD 1u
 #define CYDEV_CHIP_DIE_PSOC4A 26u
 #define CYDEV_CHIP_DIE_PSOC5LP 2u

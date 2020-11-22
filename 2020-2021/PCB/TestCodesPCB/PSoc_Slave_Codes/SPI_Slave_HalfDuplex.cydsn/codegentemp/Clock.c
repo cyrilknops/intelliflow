@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: SPI_Slave_IntClock.c
+* File Name: Clock.c
 * Version 2.20
 *
 *  Description:
@@ -17,12 +17,12 @@
 *******************************************************************************/
 
 #include <cydevice_trm.h>
-#include "SPI_Slave_IntClock.h"
+#include "Clock.h"
 
 #if defined CYREG_PERI_DIV_CMD
 
 /*******************************************************************************
-* Function Name: SPI_Slave_IntClock_StartEx
+* Function Name: Clock_StartEx
 ********************************************************************************
 *
 * Summary:
@@ -36,24 +36,24 @@
 *  None
 *
 *******************************************************************************/
-void SPI_Slave_IntClock_StartEx(uint32 alignClkDiv)
+void Clock_StartEx(uint32 alignClkDiv)
 {
     /* Make sure any previous start command has finished. */
-    while((SPI_Slave_IntClock_CMD_REG & SPI_Slave_IntClock_CMD_ENABLE_MASK) != 0u)
+    while((Clock_CMD_REG & Clock_CMD_ENABLE_MASK) != 0u)
     {
     }
     
     /* Specify the target divider and it's alignment divider, and enable. */
-    SPI_Slave_IntClock_CMD_REG =
-        ((uint32)SPI_Slave_IntClock__DIV_ID << SPI_Slave_IntClock_CMD_DIV_SHIFT)|
-        (alignClkDiv << SPI_Slave_IntClock_CMD_PA_DIV_SHIFT) |
-        (uint32)SPI_Slave_IntClock_CMD_ENABLE_MASK;
+    Clock_CMD_REG =
+        ((uint32)Clock__DIV_ID << Clock_CMD_DIV_SHIFT)|
+        (alignClkDiv << Clock_CMD_PA_DIV_SHIFT) |
+        (uint32)Clock_CMD_ENABLE_MASK;
 }
 
 #else
 
 /*******************************************************************************
-* Function Name: SPI_Slave_IntClock_Start
+* Function Name: Clock_Start
 ********************************************************************************
 *
 * Summary:
@@ -67,17 +67,17 @@ void SPI_Slave_IntClock_StartEx(uint32 alignClkDiv)
 *
 *******************************************************************************/
 
-void SPI_Slave_IntClock_Start(void)
+void Clock_Start(void)
 {
     /* Set the bit to enable the clock. */
-    SPI_Slave_IntClock_ENABLE_REG |= SPI_Slave_IntClock__ENABLE_MASK;
+    Clock_ENABLE_REG |= Clock__ENABLE_MASK;
 }
 
 #endif /* CYREG_PERI_DIV_CMD */
 
 
 /*******************************************************************************
-* Function Name: SPI_Slave_IntClock_Stop
+* Function Name: Clock_Stop
 ********************************************************************************
 *
 * Summary:
@@ -92,31 +92,31 @@ void SPI_Slave_IntClock_Start(void)
 *  None
 *
 *******************************************************************************/
-void SPI_Slave_IntClock_Stop(void)
+void Clock_Stop(void)
 {
 #if defined CYREG_PERI_DIV_CMD
 
     /* Make sure any previous start command has finished. */
-    while((SPI_Slave_IntClock_CMD_REG & SPI_Slave_IntClock_CMD_ENABLE_MASK) != 0u)
+    while((Clock_CMD_REG & Clock_CMD_ENABLE_MASK) != 0u)
     {
     }
     
     /* Specify the target divider and it's alignment divider, and disable. */
-    SPI_Slave_IntClock_CMD_REG =
-        ((uint32)SPI_Slave_IntClock__DIV_ID << SPI_Slave_IntClock_CMD_DIV_SHIFT)|
-        ((uint32)SPI_Slave_IntClock_CMD_DISABLE_MASK);
+    Clock_CMD_REG =
+        ((uint32)Clock__DIV_ID << Clock_CMD_DIV_SHIFT)|
+        ((uint32)Clock_CMD_DISABLE_MASK);
 
 #else
 
     /* Clear the bit to disable the clock. */
-    SPI_Slave_IntClock_ENABLE_REG &= (uint32)(~SPI_Slave_IntClock__ENABLE_MASK);
+    Clock_ENABLE_REG &= (uint32)(~Clock__ENABLE_MASK);
     
 #endif /* CYREG_PERI_DIV_CMD */
 }
 
 
 /*******************************************************************************
-* Function Name: SPI_Slave_IntClock_SetFractionalDividerRegister
+* Function Name: Clock_SetFractionalDividerRegister
 ********************************************************************************
 *
 * Summary:
@@ -131,35 +131,35 @@ void SPI_Slave_IntClock_Stop(void)
 *  None
 *
 *******************************************************************************/
-void SPI_Slave_IntClock_SetFractionalDividerRegister(uint16 clkDivider, uint8 clkFractional)
+void Clock_SetFractionalDividerRegister(uint16 clkDivider, uint8 clkFractional)
 {
     uint32 maskVal;
     uint32 regVal;
     
-#if defined (SPI_Slave_IntClock__FRAC_MASK) || defined (CYREG_PERI_DIV_CMD)
+#if defined (Clock__FRAC_MASK) || defined (CYREG_PERI_DIV_CMD)
     
 	/* get all but divider bits */
-    maskVal = SPI_Slave_IntClock_DIV_REG & 
-                    (uint32)(~(uint32)(SPI_Slave_IntClock_DIV_INT_MASK | SPI_Slave_IntClock_DIV_FRAC_MASK)); 
+    maskVal = Clock_DIV_REG & 
+                    (uint32)(~(uint32)(Clock_DIV_INT_MASK | Clock_DIV_FRAC_MASK)); 
 	/* combine mask and new divider vals into 32-bit value */
     regVal = maskVal |
-        ((uint32)((uint32)clkDivider <<  SPI_Slave_IntClock_DIV_INT_SHIFT) & SPI_Slave_IntClock_DIV_INT_MASK) |
-        ((uint32)((uint32)clkFractional << SPI_Slave_IntClock_DIV_FRAC_SHIFT) & SPI_Slave_IntClock_DIV_FRAC_MASK);
+        ((uint32)((uint32)clkDivider <<  Clock_DIV_INT_SHIFT) & Clock_DIV_INT_MASK) |
+        ((uint32)((uint32)clkFractional << Clock_DIV_FRAC_SHIFT) & Clock_DIV_FRAC_MASK);
     
 #else
     /* get all but integer divider bits */
-    maskVal = SPI_Slave_IntClock_DIV_REG & (uint32)(~(uint32)SPI_Slave_IntClock__DIVIDER_MASK);
+    maskVal = Clock_DIV_REG & (uint32)(~(uint32)Clock__DIVIDER_MASK);
     /* combine mask and new divider val into 32-bit value */
     regVal = clkDivider | maskVal;
     
-#endif /* SPI_Slave_IntClock__FRAC_MASK || CYREG_PERI_DIV_CMD */
+#endif /* Clock__FRAC_MASK || CYREG_PERI_DIV_CMD */
 
-    SPI_Slave_IntClock_DIV_REG = regVal;
+    Clock_DIV_REG = regVal;
 }
 
 
 /*******************************************************************************
-* Function Name: SPI_Slave_IntClock_GetDividerRegister
+* Function Name: Clock_GetDividerRegister
 ********************************************************************************
 *
 * Summary:
@@ -173,15 +173,15 @@ void SPI_Slave_IntClock_SetFractionalDividerRegister(uint16 clkDivider, uint8 cl
 *  divide by 2, the return value will be 1.
 *
 *******************************************************************************/
-uint16 SPI_Slave_IntClock_GetDividerRegister(void)
+uint16 Clock_GetDividerRegister(void)
 {
-    return (uint16)((SPI_Slave_IntClock_DIV_REG & SPI_Slave_IntClock_DIV_INT_MASK)
-        >> SPI_Slave_IntClock_DIV_INT_SHIFT);
+    return (uint16)((Clock_DIV_REG & Clock_DIV_INT_MASK)
+        >> Clock_DIV_INT_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: SPI_Slave_IntClock_GetFractionalDividerRegister
+* Function Name: Clock_GetFractionalDividerRegister
 ********************************************************************************
 *
 * Summary:
@@ -195,15 +195,15 @@ uint16 SPI_Slave_IntClock_GetDividerRegister(void)
 *  0 if the fractional divider is not in use.
 *
 *******************************************************************************/
-uint8 SPI_Slave_IntClock_GetFractionalDividerRegister(void)
+uint8 Clock_GetFractionalDividerRegister(void)
 {
-#if defined (SPI_Slave_IntClock__FRAC_MASK)
+#if defined (Clock__FRAC_MASK)
     /* return fractional divider bits */
-    return (uint8)((SPI_Slave_IntClock_DIV_REG & SPI_Slave_IntClock_DIV_FRAC_MASK)
-        >> SPI_Slave_IntClock_DIV_FRAC_SHIFT);
+    return (uint8)((Clock_DIV_REG & Clock_DIV_FRAC_MASK)
+        >> Clock_DIV_FRAC_SHIFT);
 #else
     return 0u;
-#endif /* SPI_Slave_IntClock__FRAC_MASK */
+#endif /* Clock__FRAC_MASK */
 }
 
 

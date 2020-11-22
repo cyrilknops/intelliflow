@@ -33,20 +33,10 @@
 
 int8 recieve;
 int8 print;
-char string[6];
+char string[5];
 
-int flagSPI = 0;
+uint8 count = 0;
 
-uint8 countTx = 0;
-
-CY_ISR(RX_isr)
-{
-    recieve = SPI_Slave_ReadByte();
-    itoa(recieve,string, 10);
-    UART_Putty_UartPutString(string);
-    UART_Putty_UartPutCRLF(0);
-    countTx = 0;  
-}
 
 int main()
 {
@@ -54,10 +44,26 @@ int main()
     UART_Putty_Start();
     SPI_Slave_Start();
     UART_Putty_UartPutString("Slave read\n\r");
-    RX_interrupt_StartEx(RX_isr);
-    
+   
     for(;;)
     {
+            recieve = SPI_Slave_ReadByte();
+            string[count] = recieve;
+            
+            if(string[0] == 'E')
+            {
+            count++;
+            }
+            
+            if(count == 6)
+            {
+            UART_Putty_UartPutString(string);
+            UART_Putty_UartPutCRLF(0);
+            count = 0;
+            memset(string , ' ' , sizeof(string));
+            }
+            
+            CyDelay(100); 
    
     }
     
