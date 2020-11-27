@@ -1,5 +1,5 @@
 -- Project:   C:\Users\11800025\Documents\GitHub\intelliflow\2020-2021\PCB\TestCodesPCB\PSoc_Slave_Codes\SPI_Slave_FullDuplex.cydsn\SPI_Slave_FullDuplex.cyprj
--- Generated: 11/22/2020 20:49:35
+-- Generated: 11/27/2020 01:16:31
 -- PSoC Creator  4.4
 
 ENTITY SPI_Slave_FullDuplex IS

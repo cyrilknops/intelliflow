@@ -3,7 +3,7 @@
 <!--This file is machine generated and read. It is not intended to be edited by hand.-->
 <!--Due to this, there is no schema for this file.-->
 <CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize" version="5" xml_contents_version="3" name="PSoc_Test_codes" persistent="PSoc_Test_codes.cywrk" platform="NOT_USED">
-<current_project name=".\I2C_slave.cydsn\I2C_slave.cyprj" />
+<current_project name=".\SPI_Slave_SenindToESP32.cydsn\SPI_Slave_SenindToESP32.cyprj" />
 <wrkspc_folders />
 <files>
 <CyGuid_8b8ab257-35d3-4473-b57b-36315200b38b type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtFileSerialize" version="3" xml_contents_version="1">
@@ -19,6 +19,7 @@
 <v>.\I2C_slave.cydsn\I2C_slave.cyprj</v>
 <v>.\SPI_Slave_FullDuplex.cydsn\SPI_Slave_FullDuplex.cyprj</v>
 <v>.\SPI_Slave_HalfDuplex.cydsn\SPI_Slave_HalfDuplex.cyprj</v>
+<v>.\SPI_Slave_SenindToESP32.cydsn\SPI_Slave_SenindToESP32.cyprj</v>
 </projects>
 <workspace_id v="c486ff9b-ec78-4c4a-8787-9fe55ce9e272" />
 <WriteAppVersionLastSavedWith v="4.4.0.80" />

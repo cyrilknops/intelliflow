@@ -1,6 +1,6 @@
 // ======================================================================
 // SPI_Slave_HalfDuplex.v generated from TopDesign.cysch
-// 11/22/2020 at 20:42
+// 11/27/2020 at 00:59
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -916,7 +916,7 @@ module top ;
 		#(.id("c4051aff-6df8-4ddd-849c-2634ebe57a24"),
 		  .source_clock_id(""),
 		  .divisor(0),
-		  .period("666666666.666667"),
+		  .period("41666666.6666667"),
 		  .is_direct(0),
 		  .is_digital(1))
 		Clock

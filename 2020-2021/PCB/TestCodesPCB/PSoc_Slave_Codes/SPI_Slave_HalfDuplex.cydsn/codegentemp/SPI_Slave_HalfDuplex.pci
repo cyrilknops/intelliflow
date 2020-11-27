@@ -1,5 +1,5 @@
 # SPI_Slave_HalfDuplex
-# 2020-11-22 19:42:22Z
+# 2020-11-27 00:00:00Z
 
 # IO_2@[IOP=(3)][IoId=(2)] is reserved: SWDDebugEnabled
 dont_use_io iocell 3 2

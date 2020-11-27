@@ -1,5 +1,5 @@
 -- Project:   SPI_Slave_FullDuplex
--- Generated: 11/22/2020 20:49:34
+-- Generated: 11/27/2020 01:16:29
 -- PSoC Creator  4.4
 
 ENTITY SPI_Slave_FullDuplex IS

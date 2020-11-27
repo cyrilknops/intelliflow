@@ -13,7 +13,7 @@ int count = 0;
 
 SPISettings settingsA(1500000, MSBFIRST, SPI_MODE1); 
 
-void shiftArray()
+void BitwiseArray()
 {
   for(int shift = 0 ; shift <= 5 ; shift++)
   {
@@ -26,7 +26,7 @@ void setup() {
   SPI.begin();
   Serial.begin(9600);
   digitalWrite(slaveSelect,HIGH); 
-  shiftArray();
+  BitwiseArray();
 }
 
 void loop() {

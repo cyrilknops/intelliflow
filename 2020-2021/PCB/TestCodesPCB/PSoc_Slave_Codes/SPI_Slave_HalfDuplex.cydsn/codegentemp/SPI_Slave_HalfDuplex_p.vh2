@@ -1,5 +1,5 @@
 -- Project:   SPI_Slave_HalfDuplex
--- Generated: 11/22/2020 20:42:22
+-- Generated: 11/27/2020 01:00:00
 -- PSoC Creator  4.4
 
 ENTITY SPI_Slave_HalfDuplex IS

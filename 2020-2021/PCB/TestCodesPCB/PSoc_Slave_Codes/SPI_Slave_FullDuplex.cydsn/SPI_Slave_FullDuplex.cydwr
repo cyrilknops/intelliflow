@@ -826,7 +826,7 @@
       <Group key="99f5a6b3-f6b1-479c-84bc-62c73313af28">
         <Data key="check_tolerance" value="True" />
         <Data key="derive_type" value="AUTO" />
-        <Data key="desired_freq" value="32" />
+        <Data key="desired_freq" value="24" />
         <Data key="desired_unit" value="6" />
         <Data key="divider" value="2" />
         <Data key="enabled" value="True" />
