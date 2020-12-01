@@ -8,6 +8,16 @@
 #include <PubSubClient.h>
 #include "config.h"
 
+#include <Wire.h>
+#include "Adafruit_TCS34725.h"
+Adafruit_TCS34725 tcs = Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_700MS, TCS34725_GAIN_1X);
+
+#include "Adafruit_SGP30.h"
+Adafruit_SGP30 sgp;
+
+//pin21=SDA
+//pin22=SCL
+
 //wifi connection
 WiFiClient espClient;
 
@@ -27,6 +37,8 @@ void setup() {
   pinMode(BUILTIN_LED, OUTPUT);
   //serialg
   Serial.begin(115200);
+  sgp.begin();
+  tcs.begin();
 
   //wifi
   setup_wifi();
@@ -38,26 +50,10 @@ void setup() {
 void loop() {
   if (!client.connected()) {
     reconnect();
-  }else{
-    intelliflow_Sensor sensor = intelliflow_Sensor_init_zero;
-    
-    strcpy(sensor.id, "1");
-    sensor.value=random(0, 40);
-    strcpy(sensor.unit, "°C");   
-    Serial.println(sensor.value);
-    Serial.println(sensor.id);
-    Serial.println(sensor.unit);
-    encode(sensor);
-    Serial.println("-------------------------");
-
-    strcpy(sensor.id, "2");
-    sensor.value=random(0, 40);
-    strcpy(sensor.unit, "°F");    
-    Serial.println(sensor.value);
-    Serial.println(sensor.id);
-    Serial.println(sensor.unit);
-    encode(sensor);
-    Serial.println("-------------------------");
+  }else{    
+    RGB_Sensor();
+    Gas_Sensor();
+    Temp_Sensor();
   }
   delay(1000);
 }
@@ -142,4 +138,53 @@ void reconnect() {
       delay(5000);
     }
   }
+}
+
+void RGB_Sensor(){ 
+  uint16_t r, g, b, c, colorTemp, lux;
+  tcs.getRawData(&r, &g, &b, &c);
+  colorTemp = tcs.calculateColorTemperature(r, g, b);
+  lux = tcs.calculateLux(r, g, b);
+  
+  intelliflow_Sensor sensor = intelliflow_Sensor_init_zero;
+  strcpy(sensor.id, "1");
+  sensor.value=colorTemp;
+  strcpy(sensor.unit, "K");   
+  Serial.println(sensor.value);
+  Serial.println(sensor.id);
+  Serial.println(sensor.unit);
+  encode(sensor);
+  Serial.println("-------------------------");
+}
+
+void Gas_Sensor(){
+  if (! sgp.IAQmeasure()) {
+    Serial.println("Measurement failed");
+    return;
+  }
+  
+  intelliflow_Sensor sensor = intelliflow_Sensor_init_zero;
+  strcpy(sensor.id, "1");
+  sensor.value=sgp.eCO2;
+  strcpy(sensor.unit, "ppm");   
+  Serial.println(sensor.value);
+  Serial.println(sensor.id);
+  Serial.println(sensor.unit);
+  encode(sensor);
+  Serial.println("-------------------------");
+}
+
+void Temp_Sensor(){
+  int reading = analogRead(25);
+  float Temp   = (reading - 509)/6.45;
+  
+  intelliflow_Sensor sensor = intelliflow_Sensor_init_zero;
+  strcpy(sensor.id, "1");
+  sensor.value=round(Temp);
+  strcpy(sensor.unit, "°C");   
+  Serial.println(sensor.value);
+  Serial.println(sensor.id);
+  Serial.println(sensor.unit);
+  encode(sensor);
+  Serial.println("-------------------------");
 }
