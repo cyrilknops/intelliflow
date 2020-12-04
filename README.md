@@ -15,10 +15,11 @@ most of them have a readme file in them which explains how to use and configure 
 * [MQTT](http://mqtt.org/) - The communication protocol used
 * [Sparkfun ESP32 Thing](https://www.sparkfun.com/products/13907) - The development boeard used
 ## Authors
-* Cyril Knops - ESP32 Network
+* Cyril Knops - ESP32 Network, ESP32 CLI
 * Joost Van der Linden - ESP32 Sensor connection
 * Glen Van Puyenbroeck - PCB Design
 * Ferre Claes - Sensor components
+* Emile Knaepen - ESP32 Sensor Libraries
 * Bart Stukken - Scrum master
 * Koen Gilissen - Product owner
 ## Links
