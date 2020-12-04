@@ -1,34 +1,57 @@
+#include <EEPROM.h>
+#include <WiFi.h>
+#include <PubSubClient.h>
+//protobuf includes
 #include <pb.h>
 #include <pb_common.h>
 #include <pb_encode.h>
-
 #include "intelliflow.pb.h"
-
-#include <WiFi.h>
-#include <PubSubClient.h>
-#include "config.h"
-
+//sensor includes
 #include <Wire.h>
 #include "Adafruit_TCS34725.h"
-Adafruit_TCS34725 tcs = Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_700MS, TCS34725_GAIN_1X);
-
 #include "Adafruit_SGP30.h"
+//CLI  
+#define LINE_BUF_SIZE 128   //Maximum input string length
+#define ARG_BUF_SIZE 64     //Maximum argument string length
+#define MAX_NUM_ARGS 8      //Maximum number of arguments
+bool error_flag = false;
+char line[LINE_BUF_SIZE];
+char args[MAX_NUM_ARGS][ARG_BUF_SIZE];
+int cmd_help();
+int cmd_wifi();
+int cmd_mqtt();
+int (*commands_func[])(){
+    &cmd_help,
+    &cmd_wifi,
+    &cmd_mqtt,
+    &cmd_cli,
+    
+};
+const char *commands_str[] = {
+    "help",
+    "wifi",
+    "mqtt",
+    "cli"
+};
+int num_commands = sizeof(commands_str) / sizeof(char *);
+bool cliMode;
+//Sensors
+Adafruit_TCS34725 tcs = Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_700MS, TCS34725_GAIN_1X);
 Adafruit_SGP30 sgp;
-
-//pin21=SDA
-//pin22=SCL
-
+//Settings
+String ssid;
+String password;
+String url;
+String port;
 //wifi connection
 WiFiClient espClient;
-
 //mqtt
+int trys = 0;
 PubSubClient client(espClient);
 long lastMsg = 0;
 char msg[50];
 uint32_t  messages = 0;
 uint32_t succes = 0;
-int mqtt_port = 24075;
-
 //protobuf
 int values = 0;
 
@@ -37,25 +60,52 @@ void setup() {
   pinMode(BUILTIN_LED, OUTPUT);
   //serialg
   Serial.begin(115200);
+  EEPROM.begin(400);
+  ssid = EEPROM.readString(0);
+  password = EEPROM.readString(100);
+  url = EEPROM.readString(200);
+  port = EEPROM.readString(300);
+  Serial.println("Settings:");
+  Serial.print(ssid);
+  Serial.print("|");
+  Serial.println(password);
+  Serial.println("-----------------------");
+  Serial.print(url);
+  Serial.print("|");
+  Serial.println(port);
+  Serial.println("-----------------------");
+  Serial.println("Type cli to change these settings");
+  cli_init();
+  
   sgp.begin();
   tcs.begin();
 
   //wifi
   setup_wifi();
   //mqtt
-  client.setServer(mqtt_server, mqtt_port);
+  client.setServer(url.c_str(), port.toInt());
   client.setCallback(callback);
 }
 
 void loop() {
-  if (!client.connected()) {
-    reconnect();
-  }else{    
-    RGB_Sensor();
-    Gas_Sensor();
-    Temp_Sensor();
+  if(!cliMode){
+    if (!client.connected()) {
+      if(trys < 2){
+        reconnect();
+      }
+      else{
+        Serial.println("failed:");
+        Serial.println("There is a problem with mqtt, change the settings by typing mqtt");
+        cliMode = true;
+      }
+    }else{    
+      RGB_Sensor();
+      Gas_Sensor();
+      Temp_Sensor();
+      delay(1000);
+    } 
   }
-  delay(1000);
+    my_cli();
 }
 
 bool encode(intelliflow_Sensor &sensor){
@@ -85,7 +135,7 @@ void setup_wifi() {
   Serial.print("Connecting to ");
   Serial.println(ssid);
 
-  WiFi.begin(ssid, password);
+  WiFi.begin(ssid.c_str(), password.c_str());
 
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
@@ -122,7 +172,8 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
 void reconnect() {
   // Loop until we're reconnected
-  while (!client.connected()) {
+  
+  while (!client.connected() && trys <= 1) {
     Serial.print("Attempting MQTT connection...");
     // Create a random client ID
     String clientId = "ESP8266Client-";
@@ -130,12 +181,12 @@ void reconnect() {
     // Attempt to connect
     if (client.connect(clientId.c_str())) {
       Serial.println("connected");
-    } else {
-      Serial.print("failed, rc=");
-      Serial.print(client.state());
-      Serial.println(" try again in 5 seconds");
-      // Wait 5 seconds before retrying
-      delay(5000);
+    } else {      
+        Serial.print("failed, rc=");
+        Serial.print(client.state());
+        Serial.println(" try again in 5 seconds");
+        delay(5000);
+        trys++;
     }
   }
 }
