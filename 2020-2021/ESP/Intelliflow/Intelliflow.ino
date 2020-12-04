@@ -47,6 +47,7 @@ String port;
 WiFiClient espClient;
 //mqtt
 int trys = 0;
+int wifiTrys = 0;
 PubSubClient client(espClient);
 long lastMsg = 0;
 char msg[50];
@@ -95,8 +96,9 @@ void loop() {
       }
       else{
         Serial.println("failed:");
-        Serial.println("There is a problem with mqtt, change the settings by typing mqtt");
+        Serial.println("There is a problem with mqtt, change the settings");
         cliMode = true;
+        cmd_mqtt();
       }
     }else{    
       RGB_Sensor();
@@ -137,17 +139,25 @@ void setup_wifi() {
 
   WiFi.begin(ssid.c_str(), password.c_str());
 
-  while (WiFi.status() != WL_CONNECTED) {
+  while (WiFi.status() != WL_CONNECTED && !cliMode) {
     delay(500);
     Serial.print(".");
+    wifiTrys++;
+    if(wifiTrys >= 10){
+      cliMode = true;
+      Serial.println("");
+      Serial.println("Could not connect, change wifi settings");
+      cmd_wifi();
+    }
   }
 
   randomSeed(micros());
-
-  Serial.println("");
-  Serial.println("WiFi connected");
-  Serial.println("IP address: ");
-  Serial.println(WiFi.localIP());
+  if(WiFi.status() == WL_CONNECTED){
+    Serial.println("");
+    Serial.println("WiFi connected");
+    Serial.println("IP address: ");
+    Serial.println(WiFi.localIP());
+  }
 }
 
 void callback(char* topic, byte* payload, unsigned int length) {
