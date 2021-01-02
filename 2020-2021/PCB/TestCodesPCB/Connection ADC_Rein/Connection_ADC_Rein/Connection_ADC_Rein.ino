@@ -27,9 +27,6 @@ void setup()
  SPI.beginTransaction(SPISettings(500000, MSBFIRST, SPI_MODE1)); 
  delay(200); 
  SPI.begin();
-
- 
- ADreset();
  
  Serial.print("setup ADC...\n");
  ADsetup();
@@ -38,14 +35,7 @@ void setup()
 
 void loop() 
 { 
-  //delayMicroseconds(1000000); 
-  //Serial.println(digitalRead(drdy_pin));
-   /*if (fallingEdge() == 1)
-       {
-          Serial.print("falling edge");
-          ADread();
-          delay(1000);
-       }*/
+  
 }
  
 void ADread()
@@ -70,17 +60,17 @@ void ADsetup()
 {
   digitalWrite(cs_pin, LOW);       
   delayMicroseconds(1);       
-  SPI.transfer(0x06);          
-  delay(ADResetDelay);         
-  SPI.transfer(0x16);          
+  ADreset();
+  delayMicroseconds(600);        
+  SPI.transfer(0x16);           //Stop read data continuous mode
   delay(210);                  
 
-  SPI.transfer(0x40);
-  SPI.transfer(0x03);
-  SPI.transfer(0x01);
-  SPI.transfer(0x00);
-  SPI.transfer(0x03);
-  SPI.transfer(0x42);
+  SPI.transfer(0x40);           //write register beginning at register 0 (mux0)
+  SPI.transfer(0x02);           //send how buch bites there will be send - 1
+  SPI.transfer(0x01);           //set mux0
+  SPI.transfer(0x00);           //set vbias
+  SPI.transfer(0x03);           //set mux1
+  SPI.transfer(0x42);           //
             
   SPI.transfer(0x04);           
          
@@ -91,8 +81,8 @@ void ADsetup()
 
 void ADreset()  
 {
- digitalWrite( res_pin, LOW);
- Serial.println("RESET -> LOW");
+ SPI.transfer(0x06);
+ Serial.println("RESET");
  delay(ADResetPulse);
  digitalWrite( res_pin , HIGH);
  Serial.println("RESET -> HIGH");
