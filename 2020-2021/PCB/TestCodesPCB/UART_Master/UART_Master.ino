@@ -9,7 +9,7 @@ void loop()
 {
   Serial.println(sending);             
  
-    while(Serial.available()) 
+   while(Serial.available()) 
    {
    reading = Serial.readString();// read the incoming data as string  
    Serial.println(reading);// string is recieved but it will send it back to the psoc4

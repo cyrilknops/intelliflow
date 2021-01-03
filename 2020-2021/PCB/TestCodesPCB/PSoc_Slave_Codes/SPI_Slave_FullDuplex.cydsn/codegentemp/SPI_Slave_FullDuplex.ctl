@@ -1,6 +1,6 @@
 -- ======================================================================
 -- SPI_Slave_FullDuplex.ctl generated from SPI_Slave_FullDuplex
--- 11/27/2020 at 01:16
+-- 01/03/2021 at 19:29
 -- This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 -- ======================================================================
 

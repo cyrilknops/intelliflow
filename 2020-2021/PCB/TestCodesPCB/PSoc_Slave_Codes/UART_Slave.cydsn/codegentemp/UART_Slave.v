@@ -1,6 +1,6 @@
 // ======================================================================
 // UART_Slave.v generated from TopDesign.cysch
-// 11/20/2020 at 20:27
+// 01/03/2021 at 18:58
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -574,7 +574,7 @@ module UART_v2_50_1 (
 		  .divisor(0),
 		  .period("1085069444.44444"),
 		  .is_direct(0),
-		  .is_digital(1))
+		  .is_digital(0))
 		IntClock
 		 (.clock_out(Net_9));
 

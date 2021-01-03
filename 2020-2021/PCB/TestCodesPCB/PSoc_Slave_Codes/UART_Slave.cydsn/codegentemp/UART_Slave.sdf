@@ -1,6 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2020-11-20T19:27:11Z")
+ (DATE "2021-01-03T17:58:38Z")
  (DESIGN "UART_Slave")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")

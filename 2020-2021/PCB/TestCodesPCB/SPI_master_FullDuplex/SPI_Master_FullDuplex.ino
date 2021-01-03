@@ -13,7 +13,7 @@ short int countRx = 0;
 
 int count = 0;
 
-SPISettings settingsA(3000000, MSBFIRST, SPI_MODE1); 
+SPISettings settingsA(12000000, MSBFIRST, SPI_MODE1); 
 
 void BitwiseArray()
 {
@@ -42,7 +42,11 @@ void loop() {
     Serial.print(stringRecieve[countRx]);
     delay(100);    
   }
-  
+
+  if(stringRecieve[0] == 'P')
+  {
+  Serial.print('\n');
+  }
   digitalWrite(slaveSelect,HIGH); 
   SPI.endTransaction();
 

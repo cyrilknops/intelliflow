@@ -1,5 +1,5 @@
 -- Project:   SPI_Slave_FullDuplex
--- Generated: 11/27/2020 01:16:29
+-- Generated: 01/03/2021 19:29:21
 -- PSoC Creator  4.4
 
 ENTITY SPI_Slave_FullDuplex IS
@@ -104,9 +104,9 @@ ARCHITECTURE __DEFAULT__ OF SPI_Slave_FullDuplex IS
     ATTRIBUTE Location OF ClockGenBlock : LABEL IS "F(CLK_GEN,0)";
     ATTRIBUTE Location OF ClockBlock : LABEL IS "F(Clock,0)";
     ATTRIBUTE lib_model OF \UART_Putty:tx(0)\ : LABEL IS "iocell1";
-    ATTRIBUTE Location OF \UART_Putty:tx(0)\ : LABEL IS "P0[5]";
+    ATTRIBUTE Location OF \UART_Putty:tx(0)\ : LABEL IS "P4[1]";
     ATTRIBUTE lib_model OF \UART_Putty:rx(0)\ : LABEL IS "iocell2";
-    ATTRIBUTE Location OF \UART_Putty:rx(0)\ : LABEL IS "P0[4]";
+    ATTRIBUTE Location OF \UART_Putty:rx(0)\ : LABEL IS "P4[0]";
     ATTRIBUTE lib_model OF MOSI(0) : LABEL IS "iocell3";
     ATTRIBUTE Location OF MOSI(0) : LABEL IS "P3[0]";
     ATTRIBUTE lib_model OF SCLK(0) : LABEL IS "iocell4";
@@ -133,7 +133,7 @@ ARCHITECTURE __DEFAULT__ OF SPI_Slave_FullDuplex IS
     ATTRIBUTE Location OF \SPI_Slave:BSPIS:rx_status_4\ : LABEL IS "U(0,1)";
     ATTRIBUTE lib_model OF \SPI_Slave:BSPIS:mosi_to_dp\ : LABEL IS "macrocell9";
     ATTRIBUTE Location OF \SPI_Slave:BSPIS:mosi_to_dp\ : LABEL IS "U(0,1)";
-    ATTRIBUTE Location OF \UART_Putty:SCB\ : LABEL IS "F(SCB,1)";
+    ATTRIBUTE Location OF \UART_Putty:SCB\ : LABEL IS "F(SCB,0)";
     ATTRIBUTE Location OF \SPI_Slave:BSPIS:sync_1\ : LABEL IS "U(0,0)";
     ATTRIBUTE Location OF \SPI_Slave:BSPIS:sync_2\ : LABEL IS "U(0,0)";
     ATTRIBUTE Location OF \SPI_Slave:BSPIS:sync_3\ : LABEL IS "U(0,0)";
@@ -536,8 +536,7 @@ BEGIN
             lfclk => ClockBlock_LFClk,
             dsi_in_0 => ClockBlock_Routed1,
             udb_div_0 => dclk_to_genclk,
-            ff_div_2 => open,
-            ff_div_3 => \UART_Putty:Net_847_ff2\);
+            ff_div_2 => \UART_Putty:Net_847_ff2\);
 
     \UART_Putty:tx\:logicalport
         GENERIC MAP(
